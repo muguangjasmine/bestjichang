@@ -169,6 +169,7 @@
       function openSearch() {
         if (!modal) return;
         if (drawer && drawer.classList.contains('active')) closeDrawer();
+        modal.style.display = 'flex';
         modal.classList.add('active');
         modal.setAttribute('aria-hidden', 'false');
         if (searchInput) {
@@ -186,6 +187,7 @@
         if (!modal) return;
         modal.classList.remove('active');
         modal.setAttribute('aria-hidden', 'true');
+        modal.style.display = 'none';
         if (searchInput) searchInput.value = '';
         if (resultsContainer) {
           resultsContainer.innerHTML = '<div class="search-initial-hint">支持搜索全站 28 家机场评测、客户端教程、专线与常见问题 FAQ</div>';

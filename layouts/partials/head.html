@@ -98,7 +98,7 @@
 {{ $css := resources.Get "css/style.css" }}
 {{ if $css }}
   {{ $style := $css | resources.Minify | resources.Fingerprint }}
-  <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
+  <link rel="stylesheet" href="{{ $style.RelPermalink }}">
 {{ else }}
   <link rel="stylesheet" href="/css/style.css">
 {{ end }}

@@ -845,6 +845,8 @@ html:not(.dark) .moon-icon {
   font-size: 0.88rem;
   line-height: 1.6;
   color: var(--text-secondary);
+}
+
 /* Top 4 Providers Text Module (No Images) */
 .top-providers-text-section {
   margin: 2.5rem 0 3.5rem;
@@ -2112,16 +2114,18 @@ html.dark .table-coupon-tag {
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   z-index: 300;
-  display: flex;
+  display: none;
   align-items: flex-start;
   justify-content: center;
   padding: 80px 20px 20px;
   opacity: 0;
   visibility: hidden;
-  transition: all 0.2s ease;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
 }
 
-.search-modal-backdrop.active {
+.search-modal-backdrop.active,
+.search-modal-backdrop[aria-hidden="false"] {
+  display: flex;
   opacity: 1;
   visibility: visible;
 }
