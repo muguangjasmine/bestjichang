@@ -1,0 +1,111 @@
+{{ define "main" }}
+<div class="airports-archive-page docsy-section">
+  <header class="section-page-header">
+    <div class="section-badge-pill">
+      <span class="pill-dot"></span>
+      <span>28 家服务商全量收录 · 纯静态真实对比</span>
+    </div>
+    <h1 class="section-main-title">2026全部机场资料库与对比大全</h1>
+    <div class="section-intro-text">
+      <p>本资料库全量收录 28 家主流网络加速服务商，严格按照本站固定核验顺序排列。涵盖企业专线、IEPL/IPLC 纯内网专线、BGP 跨境以及 VLESS Reality 等多种架构。支持移动端横向滑动对比，每家服务商均提供独立规范单页评测档案与实时官网注册入口。</p>
+    </div>
+  </header>
+
+  <!-- Filter Pills -->
+  <div class="airports-filter-bar">
+    <span class="filter-label">筛选维度:</span>
+    <button class="filter-chip active" onclick="filterAirports('all', this)">全部 28 家</button>
+    <button class="filter-chip" onclick="filterAirports('dedicated', this)">专线 (IEPL/IPLC)</button>
+    <button class="filter-chip" onclick="filterAirports('monthly', this)">月付精选</button>
+    <button class="filter-chip" onclick="filterAirports('yearly', this)">年付高性价比</button>
+    <button class="filter-chip" onclick="filterAirports('ai', this)">AI 优化特化</button>
+  </div>
+
+  <!-- Comparison Table -->
+  <section class="airports-table-section">
+    <div class="table-header-wrap">
+      <h2 class="sub-section-title">28 家机场核心参数横向对比总表</h2>
+      <span class="table-scroll-hint">👉 手机端支持左右横向滑动查看全部字段</span>
+    </div>
+    <div class="table-responsive-wrapper">
+      {{ partial "ranking-table.html" (dict "Site" .Site) }}
+    </div>
+  </section>
+
+  <!-- Provider Cards Grid -->
+  <section class="airports-cards-section" style="margin-top: 3.5rem;">
+    <h2 class="sub-section-title">28 家机场独立详情与评测概览</h2>
+    <div class="airports-cards-grid">
+      {{ range .Site.Data.providers }}
+      {{ $rankClass := "rank-other" }}
+      {{ if eq .rank 1 }}{{ $rankClass = "rank-1" }}
+      {{ else if eq .rank 2 }}{{ $rankClass = "rank-2" }}
+      {{ else if eq .rank 3 }}{{ $rankClass = "rank-3" }}
+      {{ else if eq .rank 4 }}{{ $rankClass = "rank-4" }}
+      {{ end }}
+
+      <div class="congo-provider-card {{ $rankClass }} airport-card-item" data-line="{{ .lineType }}" data-price="{{ .priceFrom }}">
+        <div class="card-top-bar">
+          <span class="provider-rank-badge">NO.{{ .rank }}</span>
+          <span class="provider-line-tag">{{ .lineType }}</span>
+        </div>
+
+        <div class="card-brand-info">
+          <h3 class="provider-card-name">
+            <a href="/airports/{{ .slug }}/">{{ .name }}</a>
+          </h3>
+          <div class="provider-badge-row">
+            <span class="provider-scenario-chip">{{ .suitableFor }}</span>
+          </div>
+        </div>
+
+        <div class="card-price-traffic-row">
+          <span class="price-val"><strong>{{ .priceFrom }}</strong></span>
+          <span class="traffic-val">{{ .trafficFrom }}</span>
+        </div>
+
+        <p class="provider-summary-text">{{ .summary }}</p>
+
+        <div class="provider-coupon-box">
+          <span class="coupon-label">优惠码:</span>
+          {{ if and .coupon (ne .coupon "暂无优惠码") (ne .coupon "优惠码待核实") }}
+            <code class="coupon-code-value coupon-red">{{ .coupon }}</code>
+            <button type="button" class="copy-coupon-btn" onclick="copyCoupon('{{ .coupon }}', this)">复制</button>
+          {{ else }}
+            <span class="table-no-coupon">{{ .coupon }}</span>
+          {{ end }}
+        </div>
+
+        <div class="card-action-group">
+          <a href="/airports/{{ .slug }}/" class="btn-review-detail">查看独立评测</a>
+          <a href="{{ .inviteURL }}" target="_blank" rel="sponsored nofollow noopener" class="btn-direct-aff">{{ with .ctaText }}{{ . }}{{ else }}直达官网 ↗{{ end }}</a>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </section>
+
+  <script>
+    function filterAirports(type, btn) {
+      document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      const cards = document.querySelectorAll('.airport-card-item');
+      cards.forEach(card => {
+        const line = card.getAttribute('data-line') || '';
+        const price = card.getAttribute('data-price') || '';
+        if (type === 'all') {
+          card.style.display = 'flex';
+        } else if (type === 'dedicated') {
+          card.style.display = (line.includes('专线') || line.includes('IEPL') || line.includes('IPLC')) ? 'flex' : 'none';
+        } else if (type === 'monthly') {
+          card.style.display = price.includes('月') ? 'flex' : 'none';
+        } else if (type === 'yearly') {
+          card.style.display = (price.includes('年') || price.includes('折算')) ? 'flex' : 'none';
+        } else if (type === 'ai') {
+          card.style.display = (line.includes('AI') || card.innerText.includes('AI') || card.innerText.includes('ChatGPT')) ? 'flex' : 'none';
+        }
+      });
+    }
+  </script>
+</div>
+{{ end }}

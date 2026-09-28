@@ -1,0 +1,10 @@
+{{ if and (gt (len .TableOfContents) 60) (ne .Params.toc false) }}
+<aside class="toc-sidebar" aria-label="文章目录">
+  <div class="toc-header">
+    <span class="toc-title">📑 本文目录导航</span>
+  </div>
+  <div class="toc-body">
+    {{ .TableOfContents }}
+  </div>
+</aside>
+{{ end }}

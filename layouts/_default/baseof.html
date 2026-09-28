@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  {{ partial "head.html" . }}
+</head>
+<body class="site-body">
+  {{ partial "header.html" . }}
+
+  {{ if not .IsHome }}
+  <div class="docsy-layout-wrapper">
+    <!-- Left Multi-level Sidebar (Docsy Architecture) -->
+    <aside class="docs-sidebar" id="docs-sidebar" aria-label="文档侧栏导航">
+      <div class="sidebar-inner-wrap">
+        <div class="sidebar-top-title">
+          <span class="sidebar-icon">📑</span>
+          <span>文档导航目录</span>
+        </div>
+        <nav class="sidebar-nav-tree">
+          <div class="sidebar-nav-group">
+            <a href="/recommendations/" class="sidebar-nav-link{{ if eq .Section "recommendations" }} active{{ end }}">
+              <span class="nav-icon">🚀</span>
+              <span class="nav-text">机场推荐 (24篇)</span>
+            </a>
+          </div>
+          <div class="sidebar-nav-group">
+            <a href="/airports/" class="sidebar-nav-link{{ if eq .Section "airports" }} active{{ end }}">
+              <span class="nav-icon">🌐</span>
+              <span class="nav-text">全部机场 (28家)</span>
+            </a>
+          </div>
+          <div class="sidebar-nav-group">
+            <a href="/ai/" class="sidebar-nav-link{{ if eq .Section "ai" }} active{{ end }}">
+              <span class="nav-icon">🤖</span>
+              <span class="nav-text">AI 机场 (12篇)</span>
+            </a>
+          </div>
+          <div class="sidebar-nav-group">
+            <a href="/streaming/" class="sidebar-nav-link{{ if eq .Section "streaming" }} active{{ end }}">
+              <span class="nav-icon">🎬</span>
+              <span class="nav-text">流媒体解锁 (10篇)</span>
+            </a>
+          </div>
+          <div class="sidebar-nav-group">
+            <a href="/network/" class="sidebar-nav-link{{ if eq .Section "network" }} active{{ end }}">
+              <span class="nav-icon">⚡</span>
+              <span class="nav-text">专线与节点 (12篇)</span>
+            </a>
+          </div>
+          <div class="sidebar-nav-group">
+            <a href="/clients/" class="sidebar-nav-link{{ if eq .Section "clients" }} active{{ end }}">
+              <span class="nav-icon">💻</span>
+              <span class="nav-text">客户端教程 (24篇)</span>
+            </a>
+          </div>
+          <div class="sidebar-nav-group">
+            <a href="/guides/" class="sidebar-nav-link{{ if eq .Section "guides" }} active{{ end }}">
+              <span class="nav-icon">📖</span>
+              <span class="nav-text">小白教程 (24篇)</span>
+            </a>
+          </div>
+          <div class="sidebar-nav-group">
+            <a href="/coupons/" class="sidebar-nav-link{{ if eq .Section "coupons" }} active{{ end }}">
+              <span class="nav-icon">🏷️</span>
+              <span class="nav-text">优惠码与折扣 (12篇)</span>
+            </a>
+          </div>
+          <div class="sidebar-nav-group">
+            <a href="/updates/" class="sidebar-nav-link{{ if eq .Section "updates" }} active{{ end }}">
+              <span class="nav-icon">📋</span>
+              <span class="nav-text">更新日志 (12篇)</span>
+            </a>
+          </div>
+          <div class="sidebar-nav-group">
+            <a href="/faq/" class="sidebar-nav-link{{ if eq .Section "faq" }} active{{ end }}">
+              <span class="nav-icon">❓</span>
+              <span class="nav-text">常见问题 FAQ (100题)</span>
+            </a>
+          </div>
+          <div class="sidebar-nav-group external">
+            <a href="{{ .Site.Params.telegramUrl }}" class="sidebar-nav-link tg" target="_blank" rel="sponsored nofollow noopener">
+              <span class="nav-icon">✈️</span>
+              <span class="nav-text">Telegram 咨询</span>
+            </a>
+          </div>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Main Docs Content Area -->
+    <main id="main-content" class="docs-main-content">
+      {{ partial "breadcrumbs.html" . }}
+      {{ block "main" . }}{{ end }}
+    </main>
+  </div>
+  {{ else }}
+  <main id="main-content" class="landing-main-container">
+    {{ block "main" . }}{{ end }}
+  </main>
+  {{ end }}
+
+  {{ partial "footer.html" . }}
+
+  <script>
+    // 1. Copy coupon code functionality
+    function copyCoupon(code, btn) {
+      if (!code || code === '暂无优惠码' || code === '优惠码待核实') return;
+      navigator.clipboard.writeText(code).then(function() {
+        const orig = btn.innerText;
+        btn.innerText = '已复制!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.innerText = orig;
+          btn.classList.remove('copied');
+        }, 2000);
+      }).catch(function(err) {
+        prompt('请手动复制优惠码：', code);
+      });
+    }
+
+    // 2. DOM Ready Listeners: Theme Switcher, Mobile Nav, Search Modal
+    document.addEventListener('DOMContentLoaded', function() {
+      // Theme Toggle
+      const themeBtn = document.getElementById('theme-toggle');
+      if (themeBtn) {
+        themeBtn.addEventListener('click', function() {
+          const isDark = document.documentElement.classList.toggle('dark');
+          localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+      }
+
+      // Mobile Drawer Menu
+      const toggle = document.getElementById('mobile-menu-toggle');
+      const drawer = document.getElementById('mobile-nav-drawer');
+      const drawerClose = document.getElementById('mobile-drawer-close');
+
+      function openDrawer() {
+        if (!drawer) return;
+        drawer.classList.add('active');
+        drawer.setAttribute('aria-hidden', 'false');
+        if (toggle) toggle.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeDrawer() {
+        if (!drawer) return;
+        drawer.classList.remove('active');
+        drawer.setAttribute('aria-hidden', 'true');
+        if (toggle) toggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+
+      if (toggle) toggle.addEventListener('click', openDrawer);
+      if (drawerClose) drawerClose.addEventListener('click', closeDrawer);
+      if (drawer) {
+        drawer.addEventListener('click', function(e) {
+          if (e.target === drawer) closeDrawer();
+        });
+      }
+
+      // Search Modal Logic
+      const modal = document.getElementById('search-modal');
+      const triggerBtn = document.getElementById('search-modal-trigger');
+      const mobileTriggerBtn = document.getElementById('mobile-search-trigger');
+      const closeBtn = document.getElementById('search-modal-close');
+      const searchInput = document.getElementById('search-modal-input');
+      const resultsContainer = document.getElementById('search-results-list');
+      let searchIndex = null;
+
+      function openSearch() {
+        if (!modal) return;
+        if (drawer && drawer.classList.contains('active')) closeDrawer();
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+        if (searchInput) {
+          setTimeout(() => searchInput.focus(), 50);
+        }
+        if (!searchIndex) {
+          fetch('/index.json')
+            .then(res => res.json())
+            .then(data => { searchIndex = data; })
+            .catch(() => {});
+        }
+      }
+
+      function closeSearch() {
+        if (!modal) return;
+        modal.classList.remove('active');
+        modal.setAttribute('aria-hidden', 'true');
+        if (searchInput) searchInput.value = '';
+        if (resultsContainer) {
+          resultsContainer.innerHTML = '<div class="search-initial-hint">支持搜索全站 28 家机场评测、客户端教程、专线与常见问题 FAQ</div>';
+        }
+      }
+
+      if (triggerBtn) triggerBtn.addEventListener('click', openSearch);
+      if (mobileTriggerBtn) mobileTriggerBtn.addEventListener('click', openSearch);
+      if (closeBtn) closeBtn.addEventListener('click', closeSearch);
+
+      // Keyboard shortcut Ctrl+K / Cmd+K
+      document.addEventListener('keydown', function(e) {
+        if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+          e.preventDefault();
+          if (modal && modal.classList.contains('active')) {
+            closeSearch();
+          } else {
+            openSearch();
+          }
+        }
+        if (e.key === 'Escape') {
+          if (modal && modal.classList.contains('active')) closeSearch();
+          if (drawer && drawer.classList.contains('active')) closeDrawer();
+        }
+      });
+
+      if (modal) {
+        modal.addEventListener('click', function(e) {
+          if (e.target === modal) closeSearch();
+        });
+      }
+
+      // Instant Search Filter
+      if (searchInput && resultsContainer) {
+        searchInput.addEventListener('input', function() {
+          const q = this.value.trim().toLowerCase();
+          if (!q) {
+            resultsContainer.innerHTML = '<div class="search-initial-hint">支持搜索全站 28 家机场评测、客户端教程、专线与常见问题 FAQ</div>';
+            return;
+          }
+          if (!searchIndex || !Array.isArray(searchIndex)) {
+            resultsContainer.innerHTML = '<div class="search-loading">索引加载中...</div>';
+            return;
+          }
+
+          const matched = searchIndex.filter(item => {
+            const title = (item.title || '').toLowerCase();
+            const desc = (item.description || item.summary || '').toLowerCase();
+            const kw = (item.keywords || item.primaryKeyword || '').toLowerCase();
+            const content = (item.content || '').toLowerCase();
+            const sec = (item.section || '').toLowerCase();
+            return title.includes(q) || desc.includes(q) || kw.includes(q) || content.includes(q) || sec.includes(q);
+          }).slice(0, 15);
+
+          if (matched.length === 0) {
+            resultsContainer.innerHTML = '<div class="search-empty-result">未检索到与 "<strong>' + escapeHTML(q) + '</strong>" 相关的结果，请尝试其他关键词。</div>';
+            return;
+          }
+
+          let html = '<ul class="search-results-items">';
+          matched.forEach(item => {
+            const linkUrl = item.url || item.permalink || '/';
+            html += '<li class="search-result-row">';
+            html += '<a href="' + escapeHTML(linkUrl) + '" class="search-res-link">';
+            html += '<span class="res-title">' + escapeHTML(item.title) + '</span>';
+            if (item.section) {
+              html += '<span class="res-badge">' + escapeHTML(item.section) + '</span>';
+            }
+            html += '<p class="res-snippet">' + escapeHTML(item.description || item.summary || '') + '</p>';
+            html += '</a>';
+            html += '</li>';
+          });
+          html += '</ul>';
+          resultsContainer.innerHTML = html;
+        });
+      }
+
+      function escapeHTML(str) {
+        return (str || '').replace(/[&<>'"]/g, tag => ({
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          "'": '&#39;',
+          '"': '&quot;'
+        }[tag] || tag));
+      }
+
+      // 5. Automatic Coupon Code Red Highlighting
+      const allCoupons = [
+        "tiziyun","mm88","flycat888","yxr888","wave888","ld88","flyv99","qq88","nmw888",
+        "AMM","rabbit","akaka","JLY888","gnt6666","sss777","YUZHOU553","ermao5555","yfy6666",
+        "kkk333","sss1111","kkk2222","wuyou666","lingmao","shanyue","firefly","kuajie",
+        "nova2026","sogo9","ermao88","yf666","kx88","wy888","civet8","fl999","ff88","kj888","jl888","gn99","u1s1new"
+      ];
+
+      // Highlight any <code> that matches a known coupon
+      document.querySelectorAll('code').forEach(function(el) {
+        const txt = el.innerText.trim();
+        if (allCoupons.some(c => c.toLowerCase() === txt.toLowerCase())) {
+          el.classList.add('coupon-red');
+          el.style.cursor = 'pointer';
+          el.title = '点击复制优惠码';
+          el.onclick = function() { copyCoupon(txt, this); };
+        }
+      });
+
+      // Highlight in article body text
+      const articleBody = document.querySelector('.article-body-content');
+      if (articleBody) {
+        const regexStr = '【(' + allCoupons.join('|') + ')】|优惠码[:：]?\\s*([a-zA-Z0-9_-]{3,15})';
+        const cRegex = new RegExp(regexStr, 'gi');
+        const walker = document.createTreeWalker(articleBody, NodeFilter.SHOW_TEXT, {
+          acceptNode: function(node) {
+            if (!node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+            const parent = node.parentElement;
+            if (!parent) return NodeFilter.FILTER_REJECT;
+            const tag = parent.tagName.toLowerCase();
+            if (['script', 'style', 'code', 'pre', 'button', 'a'].includes(tag)) {
+              return NodeFilter.FILTER_REJECT;
+            }
+            return NodeFilter.FILTER_ACCEPT;
+          }
+        });
+
+        const targetNodes = [];
+        while (walker.nextNode()) {
+          targetNodes.push(walker.currentNode);
+        }
+
+        targetNodes.forEach(function(node) {
+          const val = node.nodeValue;
+          if (cRegex.test(val)) {
+            cRegex.lastIndex = 0;
+            const wrapper = document.createElement('span');
+            wrapper.innerHTML = val.replace(cRegex, function(match, p1, p2) {
+              const code = p1 || p2;
+              if (!code || code === '暂无优惠码' || code === '优惠码待核实' || code === '原价折扣') return match;
+              if (allCoupons.some(c => c.toLowerCase() === code.toLowerCase())) {
+                if (p1) {
+                  return '【<code class="coupon-red" style="cursor:pointer;" title="点击复制优惠码" onclick="copyCoupon(\'' + code + '\', this)">' + code + '</code>】';
+                }
+                return '优惠码 <code class="coupon-red" style="cursor:pointer;" title="点击复制优惠码" onclick="copyCoupon(\'' + code + '\', this)">' + code + '</code>';
+              }
+              return match;
+            });
+            node.parentNode.replaceChild(wrapper, node);
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

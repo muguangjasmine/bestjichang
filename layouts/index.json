@@ -1,0 +1,11 @@
+{{- $pages := where .Site.RegularPages "Draft" false -}}
+{{- $searchIndex := slice -}}
+{{- range $pages -}}
+  {{- $cleanContent := .Plain | truncate 350 -}}
+  {{- $keywords := slice -}}
+  {{- with .Params.primaryKeyword }}{{ $keywords = $keywords | append . }}{{ end -}}
+  {{- with .Params.secondaryKeywords }}{{ $keywords = $keywords | append . }}{{ end -}}
+  {{- $item := dict "title" .Title "url" .RelPermalink "permalink" .RelPermalink "description" (.Description | default (.Summary | plainify | truncate 120)) "section" .Section "keywords" (delimit $keywords " ") "content" $cleanContent -}}
+  {{- $searchIndex = $searchIndex | append $item -}}
+{{- end -}}
+{{- $searchIndex | jsonify -}}

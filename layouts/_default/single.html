@@ -1,0 +1,114 @@
+{{ define "main" }}
+<article class="single-article docsy-article" itemscope itemtype="https://schema.org/Article">
+  <header class="article-header">
+    <div class="article-meta-top">
+      <span class="article-category-badge">
+        {{- $currentSec := or .Section .Params.section -}}
+        {{- if eq $currentSec "recommendations" }}机场推荐
+        {{- else if eq $currentSec "airports" }}机场档案
+        {{- else if eq $currentSec "ai" }}AI机场
+        {{- else if eq $currentSec "streaming" }}流媒体
+        {{- else if eq $currentSec "network" }}专线节点
+        {{- else if eq $currentSec "clients" }}客户端教程
+        {{- else if eq $currentSec "guides" }}小白教程
+        {{- else if eq $currentSec "coupons" }}优惠码
+        {{- else if eq $currentSec "updates" }}更新日志
+        {{- else if eq $currentSec "faq" }}常见问题FAQ
+        {{- else if in (slice "about" "editorial-policy" "methodology" "terms" "privacy" "disclaimer" "affiliate-disclosure" "corrections" "contact") $currentSec }}合规与信任
+        {{- else if $currentSec }}{{ $currentSec }}{{ else }}Best专栏{{ end -}}
+      </span>
+      <time datetime="{{ .Date.Format "2006-01-02" }}" class="meta-date">发布于 {{ .Date.Format "2006-01-02" }}</time>
+      {{ if ne .Lastmod .Date }}
+        <time datetime="{{ .Lastmod.Format "2006-01-02" }}" class="meta-lastmod">(更新于 {{ .Lastmod.Format "2006-01-02" }})</time>
+      {{ end }}
+      <span class="meta-reading-time">⏱️ {{ .ReadingTime }} 分钟阅读</span>
+      <span class="meta-author">✍️ {{ with .Params.author }}{{ . }}{{ else }}{{ .Site.Params.brandName }}特约评测组{{ end }}</span>
+    </div>
+
+    <h1 class="article-title" itemprop="headline">{{ .Title }}</h1>
+
+    {{ with .Params.description }}
+      <div class="article-summary-lead" itemprop="description">
+        <span class="lead-icon">💡</span>
+        <div class="lead-text"><strong>核心导读：</strong>{{ . }}</div>
+      </div>
+    {{ end }}
+  </header>
+
+  <!-- Table of Contents -->
+  {{ partial "toc.html" . }}
+
+
+  <!-- Main Article Body with Docsy Typography -->
+  <div class="article-body-content docsy-prose" itemprop="articleBody">
+    {{ .Content }}
+  </div>
+
+  <!-- Previous / Next Article Pagination (Docsy standard) -->
+  <nav class="docs-pagination-nav" aria-label="上下篇导航">
+    <div class="pagination-prev">
+      {{ with .PrevInSection }}
+        <a href="{{ .RelPermalink }}" class="pagination-link prev" rel="prev">
+          <span class="pagination-arrow">&larr; 上一篇</span>
+          <span class="pagination-title">{{ .Title }}</span>
+        </a>
+      {{ end }}
+    </div>
+    <div class="pagination-next">
+      {{ with .NextInSection }}
+        <a href="{{ .RelPermalink }}" class="pagination-link next" rel="next">
+          <span class="pagination-arrow">下一篇 &rarr;</span>
+          <span class="pagination-title">{{ .Title }}</span>
+        </a>
+      {{ end }}
+    </div>
+  </nav>
+
+  <!-- Related Content Cards -->
+  {{ $contentPool := where .Site.RegularPages "Section" "in" (slice "recommendations" "airports" "ai" "streaming" "network" "clients" "guides") }}
+  {{ $sameSection := where (where $contentPool "Section" .Section) "Permalink" "!=" .Permalink }}
+  {{ $otherSection := where (where $contentPool "Section" "in" (slice "recommendations" "clients" "guides")) "Permalink" "!=" .Permalink }}
+
+  {{ $related := slice }}
+  {{ if gt (len $sameSection) 0 }}
+    {{ $related = $sameSection | first 4 }}
+    {{ if lt (len $related) 4 }}
+      {{ $related = ($related | union $otherSection) | first 4 }}
+    {{ end }}
+  {{ else }}
+    {{ $related = $otherSection | first 4 }}
+  {{ end }}
+
+  {{ if $related }}
+    {{ $relatedHeading := "📚 相关推荐与使用教程" }}
+    {{ if eq .Section "recommendations" }}
+      {{ $relatedHeading = "📚 更多机场选购与评测指南" }}
+    {{ else if eq .Section "clients" }}
+      {{ $relatedHeading = "📚 客户端配置与排错教程" }}
+    {{ else if eq .Section "guides" }}
+      {{ $relatedHeading = "📚 新手必读与入门指南" }}
+    {{ else if eq .Section "ai" }}
+      {{ $relatedHeading = "📚 更多 AI 节点与原生专线实测" }}
+    {{ else if eq .Section "streaming" }}
+      {{ $relatedHeading = "📚 流媒体 4K 极速解锁推荐" }}
+    {{ end }}
+    <section class="related-posts-section">
+      <h3 class="related-heading">{{ $relatedHeading }}</h3>
+      <div class="related-posts-grid">
+        {{ range $related }}
+          <div class="related-card congo-card">
+            <h4 class="related-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h4>
+            <p class="related-desc">{{ with .Description }}{{ . | plainify | truncate 70 }}{{ else }}{{ .Summary | plainify | truncate 70 }}{{ end }}</p>
+          </div>
+        {{ end }}
+      </div>
+    </section>
+  {{ end }}
+
+  <div class="article-footer-back">
+    <a href="/recommendations/" class="btn btn-primary btn-pill">&larr; 返回机场推荐专区</a>
+    <a href="/airports/" class="btn btn-outline btn-pill">查看全部 28 家机场</a>
+    <a href="/" class="btn btn-secondary btn-pill">回到网站首页</a>
+  </div>
+</article>
+{{ end }}

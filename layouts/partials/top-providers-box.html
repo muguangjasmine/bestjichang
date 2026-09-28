@@ -1,0 +1,69 @@
+<section class="top-providers-text-section top-providers-pure-box" id="top-featured-providers" aria-label="全站精选四大标杆机场横向速览">
+  <div class="top-providers-header">
+    <div class="section-badge-pill">
+      <span class="pill-dot"></span>
+      <span>2026 核心严选 · 重点推荐四大标杆服务商</span>
+    </div>
+    <h2 class="top-providers-title">2026 标杆加速服务商横向精选对比</h2>
+    <p class="top-providers-subtitle">依据骨干网络介质、晚高峰网络调度、AI解锁与流媒体原生支持度，为您客观汇总前四名主流标杆平台核心参数。全纯文本展示，不含任何宣传诱导图片。</p>
+  </div>
+
+  <div class="top-providers-grid">
+    {{ range first 4 .Site.Data.providers }}
+      {{ $pRank := .rank }}
+      <div class="top-provider-card rank-{{ $pRank }}" id="featured-{{ .slug }}">
+        <div class="top-card-header">
+          <div class="top-rank-badge">NO.{{ $pRank }} 首选推荐</div>
+          <span class="top-line-type">{{ .lineType }}</span>
+        </div>
+
+        <div class="top-card-body">
+          <h3 class="top-provider-name">
+            <a href="/airports/{{ .slug }}/">{{ .name }}</a>
+          </h3>
+          <p class="top-provider-summary">{{ .summary }}</p>
+
+          <div class="top-specs-list">
+            <div class="spec-row">
+              <span class="spec-label">参考资费：</span>
+              <strong class="spec-value price-highlight">{{ .priceFrom }}</strong>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">起始流量：</span>
+              <span class="spec-value">{{ .trafficFrom }}</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">核心支持：</span>
+              <span class="spec-value">{{ .suitableFor }}</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">节点覆盖：</span>
+              <span class="spec-value">{{ delimit .regions "、" }}</span>
+            </div>
+          </div>
+
+          <div class="top-coupon-container">
+            <span class="coupon-label">专属优惠码：</span>
+            {{ if and .coupon (ne .coupon "暂无优惠码") (ne .coupon "优惠码待核实") }}
+              <code class="coupon-code coupon-red">{{ .coupon }}</code>
+              <button class="copy-coupon-btn" onclick="copyCoupon('{{ .coupon }}', this)" type="button">复制</button>
+            {{ else }}
+              <span class="table-no-coupon">{{ .coupon }}</span>
+            {{ end }}
+          </div>
+          {{ with .couponNote }}
+            <div class="top-coupon-note">注：{{ . }}</div>
+          {{ end }}
+        </div>
+
+        <div class="top-card-footer">
+          <a href="/airports/{{ .slug }}/" class="btn-detail-link">查阅详细评测档案 &rarr;</a>
+          <a href="{{ .inviteURL }}" target="_blank" rel="sponsored nofollow noopener" class="btn-aff-cta">
+            {{ with .ctaText }}{{ . }}{{ else }}直达官网注册选购 ↗{{ end }}
+          </a>
+        </div>
+        <div class="top-card-verified-date">最后核验日期：{{ .lastChecked }}</div>
+      </div>
+    {{ end }}
+  </div>
+</section>

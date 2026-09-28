@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" width="100%" height="auto">
+  <rect width="800" height="380" rx="12" fill="#0b132b"/>
+  <text x="400" y="45" fill="#ffffff" font-size="18" font-weight="bold" text-anchor="middle" font-family="sans-serif">Shadowrocket (小火箭) iOS 规范配置与分流决策流</text>
+  
+  <!-- Step 1 -->
+  <rect x="60" y="100" width="150" height="100" rx="8" fill="#1c2541" stroke="#48cae4" stroke-width="2"/>
+  <text x="135" y="135" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle" font-family="sans-serif">1. 订阅拉取</text>
+  <text x="135" y="160" fill="#90e0ef" font-size="12" text-anchor="middle" font-family="sans-serif">类型选 Subscribe</text>
+  <text x="135" y="180" fill="#ade8f4" font-size="11" text-anchor="middle" font-family="sans-serif">粘贴 URL 自动解析</text>
+  
+  <!-- Line -->
+  <line x1="210" y1="150" x2="270" y2="150" stroke="#00b4d8" stroke-width="3"/>
+  
+  <!-- Step 2 -->
+  <rect x="270" y="100" width="150" height="100" rx="8" fill="#1c2541" stroke="#0096c7" stroke-width="2"/>
+  <text x="345" y="135" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle" font-family="sans-serif">2. 节点连通测速</text>
+  <text x="345" y="160" fill="#90e0ef" font-size="12" text-anchor="middle" font-family="sans-serif">Ping 连通性检测</text>
+  <text x="345" y="180" fill="#ade8f4" font-size="11" text-anchor="middle" font-family="sans-serif">选择稳定低延迟节点</text>
+  
+  <!-- Line -->
+  <line x1="420" y1="150" x2="480" y2="150" stroke="#0077b6" stroke-width="3"/>
+  
+  <!-- Step 3 -->
+  <rect x="480" y="100" width="150" height="100" rx="8" fill="#1c2541" stroke="#023e8a" stroke-width="2"/>
+  <text x="555" y="135" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle" font-family="sans-serif">3. 全局路由策略</text>
+  <text x="555" y="160" fill="#caf0f8" font-size="12" text-anchor="middle" font-family="sans-serif">务必勾选‘配置’模式</text>
+  <text x="555" y="180" fill="#ade8f4" font-size="11" text-anchor="middle" font-family="sans-serif">自动规则防时区漂移</text>
+  
+  <!-- Note -->
+  <rect x="60" y="240" width="680" height="90" rx="8" fill="#1c2541" stroke="#3a0ca3"/>
+  <text x="400" y="275" fill="#f72585" font-size="14" font-weight="bold" text-anchor="middle" font-family="sans-serif">⚡ 避坑要点：严禁开启全局代理（Proxy）访问国内金融与常用应用</text>
+  <text x="400" y="305" fill="#e2e8f0" font-size="12" text-anchor="middle" font-family="sans-serif">选择‘配置模式’可确保本地应用不被误限速，微信/外卖直接本地直连，海外目标自动走专线。</text>
+</svg>

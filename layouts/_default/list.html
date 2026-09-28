@@ -1,0 +1,105 @@
+{{ define "main" }}
+{{- $usePagination := in (slice "recommendations" "clients" "guides") .Section -}}
+{{- $paginator := "" -}}
+{{- $isFirstPage := true -}}
+{{- $pages := .Pages -}}
+{{- if $usePagination -}}
+  {{- $paginator = .Paginator -}}
+  {{- $pages = $paginator.Pages -}}
+  {{- $isFirstPage = eq $paginator.PageNumber 1 -}}
+{{- end -}}
+
+<div class="section-archive-page docsy-archive" id="archive-top">
+  <header class="section-page-header">
+    <div class="section-badge-pill">
+      <span class="pill-dot"></span>
+      <span>专栏精选 · 深度解析</span>
+    </div>
+    {{- if and $usePagination (not $isFirstPage) -}}
+      <h1 class="section-main-title">{{ .Title }} (第 {{ $paginator.PageNumber }} 页)</h1>
+      <div class="section-intro-text">
+        <p>当前正在浏览 {{ .Title }} 专栏第 {{ $paginator.PageNumber }} 页，共 {{ len .Pages }} 篇精选内容与深度指南。</p>
+      </div>
+    {{- else -}}
+      <h1 class="section-main-title">{{ .Title }}</h1>
+      <div class="section-intro-text">
+        {{ with .Description }}
+          <p>{{ . }}</p>
+        {{ else }}
+          <p>Best机场（bestjichang.sbs）{{ .Title }}专栏，为您汇总一手网络机场选购建议、客户端配置排错技巧与晚高峰使用特点，帮助新手小白先看懂再选择，不花冤枉钱。</p>
+        {{ end }}
+        {{ if .Content }}
+          <div class="section-lead-content">{{ .Content }}</div>
+        {{ end }}
+      </div>
+    {{- end -}}
+  </header>
+
+  {{- if $isFirstPage -}}
+  <!-- Quick Navigation Directory Jump Chips -->
+  <nav class="handbook-quick-index congo-card" aria-label="本专栏快速目录索引">
+    <div class="quick-index-header">
+      <span class="quick-index-icon">📋</span>
+      <span class="quick-index-title">{{ .Title }} · 全部文章索引</span>
+      <span class="quick-index-badge">共 {{ len .Pages }} 篇内容</span>
+    </div>
+    <div class="quick-index-grid">
+      {{ range $idx, $p := .Pages }}
+        <a href="{{ $p.RelPermalink }}" class="quick-index-chip">
+          <span class="chip-num">#{{ printf "%02d" (add $idx 1) }}</span>
+          <span class="chip-text">{{ $p.Title }}</span>
+        </a>
+      {{ end }}
+    </div>
+  </nav>
+
+  <!-- Top Providers Text Comparison Box (Top 30% of Recommendations Section) -->
+  {{ if eq .Section "recommendations" }}
+    {{ partial "top-providers-box.html" . }}
+  {{ end }}
+  {{- end -}}
+
+  <!-- Articles Grid / Stream -->
+  <div class="article-cards-grid">
+    {{ range $pages }}
+      <article class="article-summary-card congo-card">
+        <div class="card-meta">
+          <span class="card-date">{{ .Date.Format "2006-01-02" }}</span>
+          <span class="card-cat">
+            {{- if eq .Section "recommendations" }}机场推荐
+            {{- else if eq .Section "airports" }}机场档案
+            {{- else if eq .Section "ai" }}AI机场
+            {{- else if eq .Section "streaming" }}流媒体
+            {{- else if eq .Section "network" }}专线节点
+            {{- else if eq .Section "clients" }}客户端教程
+            {{- else if eq .Section "guides" }}小白教程
+            {{- else if eq .Section "coupons" }}优惠码
+            {{- else if eq .Section "updates" }}更新日志
+            {{- else if eq .Section "faq" }}常见问题FAQ
+            {{- else }}专栏{{ end -}}
+          </span>
+          <span class="card-readtime">⏱️ {{ .ReadingTime }} 分钟</span>
+        </div>
+        <h2 class="card-title"><a href="{{ .RelPermalink }}" title="{{ .Title }}">{{ .Title }}</a></h2>
+        <p class="card-excerpt">{{ with .Description }}{{ . | plainify | truncate 90 }}{{ else }}{{ .Summary | plainify | truncate 90 }}{{ end }}</p>
+        <div class="card-footer-action">
+          <a href="{{ .RelPermalink }}" class="card-read-link">阅读完整指南 &rarr;</a>
+        </div>
+      </article>
+    {{ end }}
+  </div>
+
+  <!-- Pagination Bar -->
+  {{ if and $usePagination (gt $paginator.TotalPages 1) }}
+    <nav class="pagination-bar" aria-label="分页导航">
+      {{ if $paginator.HasPrev }}
+        <a href="{{ $paginator.Prev.URL }}" class="page-link prev-link">&larr; 上一页</a>
+      {{ end }}
+      <span class="page-info">第 {{ $paginator.PageNumber }} 页 / 共 {{ $paginator.TotalPages }} 页</span>
+      {{ if $paginator.HasNext }}
+        <a href="{{ $paginator.Next.URL }}" class="page-link next-link">下一页 &rarr;</a>
+      {{ end }}
+    </nav>
+  {{ end }}
+</div>
+{{ end }}

@@ -1,0 +1,47 @@
+<div class="provider-card{{ if .isPrimary }} primary-provider{{ end }}" id="provider-{{ .slug }}">
+  <div class="provider-badge-row">
+    <div class="rank-badge">NO.{{ .rank }}</div>
+    {{ if .isPrimary }}
+      <span class="featured-tag">★ 本站首选推荐</span>
+    {{ end }}
+    <div class="verification-date">最后核验: {{ .lastChecked }}</div>
+  </div>
+
+  <div class="provider-main-info">
+    <h3 class="provider-name">{{ .name }}</h3>
+    <p class="provider-summary">{{ .summary }}</p>
+  </div>
+
+  <div class="provider-meta-grid">
+    <div class="meta-item">
+      <span class="meta-label">参考起步价：</span>
+      <span class="meta-value price-text">{{ .priceFrom }}</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">起始流量：</span>
+      <span class="meta-value">{{ .trafficFrom }}</span>
+    </div>
+    <div class="meta-item full-width">
+      <span class="meta-label">适用场景：</span>
+      <span class="meta-value">{{ .suitableFor }}</span>
+    </div>
+  </div>
+
+  <div class="provider-coupon-box">
+    <span class="coupon-label">专属优惠码：</span>
+    {{ if and .coupon (ne .coupon "暂无优惠码") (ne .coupon "优惠码待核实") }}
+      <code class="coupon-code-value coupon-red">{{ .coupon }}</code>
+      <button class="copy-coupon-btn" onclick="copyCoupon('{{ .coupon }}', this)" type="button">复制优惠码</button>
+    {{ else }}
+      <span class="table-no-coupon">{{ .coupon }}</span>
+    {{ end }}
+  </div>
+  {{ with .couponNote }}
+    <div class="coupon-note">注：{{ . }}</div>
+  {{ end }}
+
+  <div class="provider-cta-row">
+    <a href="{{ .inviteURL }}" target="_blank" rel="sponsored nofollow noopener" class="btn btn-primary external-cta-link">{{ with .ctaText }}{{ . }}{{ else }}直达官网 ↗{{ end }}</a>
+    <a href="/providers/{{ .slug }}/" class="btn btn-secondary internal-review-link">查看 {{ .name }} 测评档案</a>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="100%" height="auto">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="primary" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" rx="12" fill="url(#bg)"/>
+  <text x="400" y="45" fill="#f8fafc" font-size="18" font-weight="bold" text-anchor="middle" font-family="sans-serif">Clash Verge Rev 核心分流架构与TUN模式处理拓扑</text>
+  
+  <!-- Step 1: App Traffic -->
+  <rect x="50" y="100" width="180" height="90" rx="8" fill="#334155" stroke="#475569" stroke-width="2"/>
+  <text x="140" y="135" fill="#e2e8f0" font-size="14" font-weight="bold" text-anchor="middle" font-family="sans-serif">本地设备 / 应用程序</text>
+  <text x="140" y="160" fill="#94a3b8" font-size="12" text-anchor="middle" font-family="sans-serif">TCP/UDP 全局/局部网络请求</text>
+  
+  <!-- Arrow 1 -->
+  <path d="M 230 145 L 290 145" stroke="#38bdf8" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+  
+  <!-- Step 2: Mihomo Core / TUN -->
+  <rect x="300" y="80" width="200" height="130" rx="8" fill="url(#primary)"/>
+  <text x="400" y="120" fill="#ffffff" font-size="15" font-weight="bold" text-anchor="middle" font-family="sans-serif">Mihomo (Clash Meta) 内核</text>
+  <text x="400" y="145" fill="#dbeafe" font-size="12" text-anchor="middle" font-family="sans-serif">TUN虚拟网卡 / 规则分流引擎</text>
+  <text x="400" y="175" fill="#93c5fd" font-size="11" text-anchor="middle" font-family="sans-serif">GEOIP / GEOSITE 域名IP规则匹配</text>
+  
+  <!-- Arrow 2 Up (Direct) -->
+  <path d="M 500 120 L 570 120" stroke="#10b981" stroke-width="3" fill="none"/>
+  
+  <!-- Target 1: Domestic Direct -->
+  <rect x="580" y="85" width="170" height="70" rx="8" fill="#064e3b" stroke="#059669" stroke-width="2"/>
+  <text x="665" y="115" fill="#a7f3d0" font-size="13" font-weight="bold" text-anchor="middle" font-family="sans-serif">Direct (直连目标)</text>
+  <text x="665" y="138" fill="#6ee7b7" font-size="11" text-anchor="middle" font-family="sans-serif">国内主流站点 / 本地网银秒开</text>
+  
+  <!-- Target 2: Proxy Tunnel -->
+  <path d="M 500 170 L 570 240" stroke="#f59e0b" stroke-width="3" fill="none"/>
+  <rect x="580" y="210" width="170" height="70" rx="8" fill="#78350f" stroke="#d97706" stroke-width="2"/>
+  <text x="665" y="240" fill="#fde68a" font-size="13" font-weight="bold" text-anchor="middle" font-family="sans-serif">Proxy (加密代理目标)</text>
+  <text x="665" y="263" fill="#fcd34d" font-size="11" text-anchor="middle" font-family="sans-serif">海外学术/AI/流媒体目标专线</text>
+  
+  <!-- Bottom Legend -->
+  <rect x="50" y="320" width="700" height="50" rx="6" fill="#1e293b" stroke="#334155"/>
+  <text x="400" y="350" fill="#94a3b8" font-size="12" text-anchor="middle" font-family="sans-serif">💡 建议日常保持开启 Rule（规则模式），兼顾低延迟无感用网与流量高效节省</text>
+</svg>

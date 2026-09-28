@@ -1,0 +1,75 @@
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-top-grid">
+      <div class="footer-col footer-brand-col">
+        <div class="footer-logo">
+          <span class="brand-badge-icon">⚡</span>
+          <span class="footer-brand-title">{{ .Site.Params.brandName }}</span>
+        </div>
+        <p class="footer-keywords-desc">
+          {{ .Site.Params.footerDescription }}
+        </p>
+        <p class="footer-disclosure-desc">
+          {{ .Site.Params.affiliateDisclosureText }}
+        </p>
+        <div class="footer-tg-action">
+          <a href="{{ .Site.Params.telegramUrl }}" class="footer-tg-link" target="_blank" rel="sponsored nofollow noopener">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+            </svg>
+            <span>Telegram 官方频道与交流群</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">核心栏目</h3>
+        <ul class="footer-link-list">
+          <li><a href="/recommendations/">2026 机场推荐榜</a></li>
+          <li><a href="/airports/">全部 28 家机场大全</a></li>
+          <li><a href="/ai/">AI 机场与原生节点</a></li>
+          <li><a href="/streaming/">Netflix/流媒体解锁</a></li>
+          <li><a href="/network/">IEPL/IPLC 专线与节点</a></li>
+          <li><a href="/clients/">客户端安装与订阅</a></li>
+          <li><a href="/guides/">小白科学上网教程</a></li>
+          <li><a href="/coupons/">机场优惠码与折扣</a></li>
+          <li><a href="/updates/">版本与价格更新日志</a></li>
+          <li><a href="/faq/">常见问题 FAQ 知识库</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">编辑与信任</h3>
+        <ul class="footer-link-list">
+          <li><a href="/about/">关于本站</a></li>
+          <li><a href="/editorial-policy/">编辑原则与标准</a></li>
+          <li><a href="/methodology/">选购与评测方法</a></li>
+          <li><a href="/corrections/">纠错与更新政策</a></li>
+          <li><a href="/affiliate-disclosure/">邀请合作披露</a></li>
+          <li><a href="/contact/">联系我们</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">合规与订阅</h3>
+        <ul class="footer-link-list">
+          <li><a href="/privacy/">隐私政策</a></li>
+          <li><a href="/terms/">服务条款</a></li>
+          <li><a href="/disclaimer/">免责声明</a></li>
+          <li><a href="/sitemap.xml">XML 网站地图</a></li>
+          <li><a href="/index.xml">RSS 订阅源</a></li>
+          <li><a href="{{ .Site.Params.telegramUrl }}" target="_blank" rel="sponsored nofollow noopener">官方 Telegram 咨询</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <div class="copyright-text">
+        &copy; 2026 {{ .Site.Params.brandName }} (bestjichang.sbs). 保留所有权利。第三方商标与专有名词归其各自合法权利人所有，本站与任何第三方无官方隶属关系。
+      </div>
+      <div class="footer-verification-badge">
+        <span>数据最新核验基准：{{ .Site.Params.lastVerifiedDate }}</span>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,100 @@
+baseURL: "https://bestjichang.sbs/"
+locale: "zh-CN"
+defaultContentLanguage: "zh-cn"
+title: "Best机场｜2026最佳机场推荐、Clash节点与AI解锁教程"
+summaryLength: 120
+hasCJKLanguage: true
+paginate: 12
+pagination:
+  pagerSize: 12
+enableRobotsTXT: true
+disableKinds: ["taxonomy", "term"]
+disableAliases: false
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+    extensions:
+      strikethrough: false
+  tableOfContents:
+    startLevel: 2
+    endLevel: 4
+    ordered: false
+
+params:
+  brandName: "Best机场"
+  brandSlug: "bestjichang"
+  brandDomain: "bestjichang.sbs"
+  brandSubtitle: "Best机场 · 2026最佳机场推荐与小白上网教程"
+  siteTopic: "Best机场（bestjichang.sbs），面向第一次接触机场与代理工具的小白用户，精选2026机场推荐、最佳机场推荐、稳定机场、Clash机场、ChatGPT机场、Claude/Gemini节点、IEPL/IPLC专线与流媒体解锁方案，提供开箱即用的小白教程与避坑指南。"
+  description: "Best机场（bestjichang.sbs）专注提供2026最佳机场推荐、稳定专线机场、便宜高性价比梯子、Clash Verge Rev/Shadowrocket客户端配置教程及ChatGPT/Netflix流媒体解锁指南，小白轻松上手不踩坑。"
+  heroTitle: "2026 Best机场推荐：稳定专线、AI解锁与小白上网教程"
+  heroSubtitle: "面向第一次接触机场与代理工具的小白用户，精选2026机场推荐、最佳机场推荐、稳定机场、Clash机场、ChatGPT机场、Claude/Gemini节点、IEPL/IPLC专线与流媒体解锁方案，提供开箱即用的小白教程与避坑指南。"
+  footerDescription: "bestjichang.sbs（Best机场）专注为新手小白提供2026好用稳定的机场推荐与科学上网使用指南。持续整理便宜性价比机场、专线机场、按量计费套餐、Clash与Shadowrocket客户端教程、ChatGPT等AI工具及流媒体解锁指南，为用户提供带核验日期的选择参考。"
+  telegramUrl: "https://t.me/+MwBINH3TUuRhNmQ9"
+  affiliateDisclosureText: "本站包含经过核验的合作与邀请链接，通过链接购买可能会为本站提供少量佣金以维持日常维护与服务器开销，绝不会增加您的实际购买费用。所有推荐均坚持客观独立核验。"
+  lastVerifiedDate: "2026-09-25"
+  currentYear: 2026
+
+menu:
+  main:
+    - identifier: "home"
+      name: "首页"
+      url: "/"
+      weight: 1
+    - identifier: "recommendations"
+      name: "机场推荐"
+      url: "/recommendations/"
+      weight: 2
+    - identifier: "airports"
+      name: "全部机场"
+      url: "/airports/"
+      weight: 3
+    - identifier: "ai"
+      name: "AI机场"
+      url: "/ai/"
+      weight: 4
+    - identifier: "streaming"
+      name: "流媒体"
+      url: "/streaming/"
+      weight: 5
+    - identifier: "network"
+      name: "专线与节点"
+      url: "/network/"
+      weight: 6
+    - identifier: "clients"
+      name: "客户端教程"
+      url: "/clients/"
+      weight: 7
+    - identifier: "guides"
+      name: "小白教程"
+      url: "/guides/"
+      weight: 8
+    - identifier: "coupons"
+      name: "优惠码"
+      url: "/coupons/"
+      weight: 9
+    - identifier: "updates"
+      name: "更新日志"
+      url: "/updates/"
+      weight: 10
+    - identifier: "faq"
+      name: "FAQ"
+      url: "/faq/"
+      weight: 11
+    - identifier: "contact-tg"
+      name: "联系我们"
+      url: "https://t.me/+MwBINH3TUuRhNmQ9"
+      weight: 12
+
+sitemap:
+  changefreq: "weekly"
+  priority: 0.8
+  filename: "sitemap.xml"

@@ -1,0 +1,97 @@
+<div class="ranking-table-wrapper" tabindex="0" role="region" aria-label="极速机场综合推荐榜单">
+  <table class="fig2-ranking-table congo-table">
+    <thead>
+      <tr>
+        <th scope="col" class="th-brand">排名 / 品牌</th>
+        <th scope="col" class="th-tech">线路协议</th>
+        <th scope="col" class="th-price">起步资费</th>
+        <th scope="col" class="th-coupon">优惠码</th>
+        <th scope="col" class="th-actions">快速直达</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{ $list := .providers }}
+      {{ if not $list }}
+        {{ $list = .Site.Data.providers }}
+      {{ end }}
+      {{ if .limit }}
+        {{ $list = first .limit $list }}
+      {{ end }}
+      {{ range $list }}
+        {{ $tech := "IEPL 专线" }}
+        {{ if eq .slug "laddercloud" }}{{ $tech = "企业专线" }}
+        {{ else if eq .slug "twilight" }}{{ $tech = "IEPL 纯专线" }}
+        {{ else if eq .slug "flycat-cloud" }}{{ $tech = "IEPL 内网专线" }}
+        {{ else if eq .slug "breezenet" }}{{ $tech = "BGP 专线" }}
+        {{ else if eq .slug "yinxingren" }}{{ $tech = "VLESS Reality" }}
+        {{ else if eq .slug "wavenet" }}{{ $tech = "AI特化" }}
+        {{ else if eq .slug "lingdongyun" }}{{ $tech = "VLESS" }}
+        {{ else if eq .slug "flyv" }}{{ $tech = "1.0x 计费" }}
+        {{ else if eq .slug "quanqiu-cloud" }}{{ $tech = "BGP 跨境" }}
+        {{ else if eq .slug "xingdaomeng" }}{{ $tech = "大带宽专线" }}
+        {{ else if eq .slug "guangsuyun" }}{{ $tech = "高性价比" }}
+        {{ else if eq .slug "v2yun" }}{{ $tech = "V2 极速" }}
+        {{ else if eq .slug "u1s1" }}{{ $tech = "极致性价比" }}
+        {{ else if eq .slug "jilianyun" }}{{ $tech = "多协议专线" }}
+        {{ else if eq .slug "guangnianti" }}{{ $tech = "IEPL 专线" }}
+        {{ else if eq .slug "sogocloud" }}{{ $tech = "平价稳定" }}
+        {{ else if eq .slug "yuzoucloud" }}{{ $tech = "14.9元平价" }}
+        {{ else if eq .slug "ermaocloud" }}{{ $tech = "轻量备用" }}
+        {{ else if eq .slug "yifanyun" }}{{ $tech = "穿透专线" }}
+        {{ else if eq .slug "edgenova" }}{{ $tech = "Anycast 专线" }}
+        {{ else if eq .slug "kexinyun" }}{{ $tech = "安全隧道" }}
+        {{ else if eq .slug "sujie" }}{{ $tech = "IEPL 专线" }}
+        {{ else if eq .slug "kuaill" }}{{ $tech = "跨境高速" }}
+        {{ else if eq .slug "wuyoulink" }}{{ $tech = "无忧多线" }}
+        {{ else if eq .slug "civetnet" }}{{ $tech = "高匿专线" }}
+        {{ else if eq .slug "flashleap" }}{{ $tech = "低延迟专线" }}
+        {{ else if eq .slug "firefly" }}{{ $tech = "全协议专线" }}
+        {{ else if eq .slug "kuajieyun" }}{{ $tech = "多地容灾" }}
+        {{ end }}
+
+        {{ $rankClass := "rank-other" }}
+        {{ if eq .rank 1 }}{{ $rankClass = "rank-1" }}
+        {{ else if eq .rank 2 }}{{ $rankClass = "rank-2" }}
+        {{ else if eq .rank 3 }}{{ $rankClass = "rank-3" }}
+        {{ else if eq .rank 4 }}{{ $rankClass = "rank-4" }}
+        {{ end }}
+
+        <tr class="{{ if .isPrimary }}row-primary{{ end }}">
+          <td class="col-brand">
+            <div class="brand-cell-wrap">
+              <span class="table-rank-badge {{ $rankClass }}">{{ .rank }}</span>
+              <a href="/airports/{{ .slug }}/" class="table-brand-name">{{ .name }}</a>
+            </div>
+          </td>
+          <td class="col-tech">
+            <span class="table-tech-badge">{{ $tech }}</span>
+          </td>
+          <td class="col-price">
+            {{ if eq .slug "laddercloud" }}<strong>¥25/月</strong> <span class="traffic-tag">(125G)</span>
+            {{ else if eq .slug "twilight" }}<strong>¥20/月</strong> <span class="traffic-tag">(120G)</span>
+            {{ else if eq .slug "flycat-cloud" }}<strong>¥84/年</strong> <span class="traffic-tag">(50G/月)</span>
+            {{ else if eq .slug "breezenet" }}<strong>以结算页为准</strong>
+            {{ else if and (ne .priceFrom "以结算页为准") (ne .trafficFrom "待核验") }}
+              {{ $p := replace .priceFrom " 元" "" }}
+              <strong>¥{{ $p }}</strong> <span class="traffic-tag">({{ replace (replace .trafficFrom "GB/月" "G") "GB" "G" }})</span>
+            {{ else }}
+              <strong>{{ .priceFrom }}</strong>
+            {{ end }}
+          </td>
+          <td class="col-coupon">
+            {{ if and .coupon (ne .coupon "暂无优惠码") (ne .coupon "优惠码待核实") }}
+              <span class="table-coupon-tag coupon-red">{{ .coupon }}</span>
+            {{ else }}
+              <span class="table-no-coupon">原价折扣</span>
+            {{ end }}
+          </td>
+          <td class="col-actions">
+            <div class="table-action-btns">
+              <a href="{{ .inviteURL }}" target="_blank" rel="sponsored nofollow noopener" class="btn-table-aff">{{ with .ctaText }}{{ . }}{{ else }}直达官网 ↗{{ end }}</a>
+            </div>
+          </td>
+        </tr>
+      {{ end }}
+    </tbody>
+  </table>
+</div>

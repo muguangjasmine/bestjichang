@@ -1,0 +1,94 @@
+{{ define "main" }}
+<div class="faq-center-page congo-faq" id="faq-top">
+  <header class="section-page-header">
+    <div class="section-badge-pill">
+      <span class="pill-dot"></span>
+      <span>100 题完整收录 · 零死角答疑</span>
+    </div>
+    <h1 class="section-main-title">2026 Best机场常见问题 FAQ 知识中心</h1>
+    <div class="section-intro-text">
+      <p>本知识中心专为第一次接触科学上网与节点客户端的小白用户打造，覆盖机场推荐选型、Clash客户端高级配置、SS与Trojan核心协议、术语避坑、亚太及欧美节点选择、套餐流量与优惠码、多设备跨平台导入以及运维排错与退款隐私等 9 大专题。所有 100 个问题答案均默认全部平铺展开，内容各不相同且深度针对，方便直接阅读或全局检索。</p>
+    </div>
+  </header>
+
+  {{ $clusters := slice
+    (dict "name" "机场推荐与选择方法" "displayName" "🚀 机场推荐与选型方法" "slug" "cluster-recommendations" "desc" "新手第一次如何买机场、专线与公网区别、月付与年付防跑路、备用节点选择与三网适配指南。")
+    (dict "name" "Clash客户端与订阅配置" "displayName" "🐱 Clash客户端与订阅配置" "slug" "cluster-clash-config" "desc" "深入讲解 Clash Verge Rev、Mihomo内核、规则分流模式、TUN虚拟网卡及端口冲突排查。")
+    (dict "name" "SS/Shadowsocks协议与基础" "displayName" "⚡ SS/Shadowsocks协议基础" "slug" "cluster-ss-protocol" "desc" "Shadowsocks对称加密、AEAD算法、SS-rust重构、单端口多用户架构与历史演进科普。")
+    (dict "name" "Trojan网络协议与实战" "displayName" "🛡️ Trojan网络协议实战" "slug" "cluster-trojan-protocol" "desc" "标准HTTPS与TLS伪装机制、SNI反探测原理、证书错误排错及晚高峰抗干扰实战解析。")
+    (dict "name" "梯子口语与避坑" "displayName" "💡 常用术语与防坑指南" "slug" "cluster-terms-guide" "desc" "揭秘“梯子”词源背景、免费节点隐藏风险、断线排查、杀软误报剖析及健康科学用网指引。")
+    (dict "name" "节点地区延迟与倍率" "displayName" "🌏 节点地区延迟与倍率" "slug" "cluster-regions-multipliers" "desc" "香港、日本、新加坡、美西原生IP差异、节点倍率扣费机制、Anycast路由与UDP支持测试。")
+    (dict "name" "套餐价格流量与优惠码" "displayName" "💰 套餐价格流量与优惠码" "slug" "cluster-pricing-discounts" "desc" "每月流量测算、按量计费不限时、优惠码使用、重置日规则、支付方式考量与促销选购时机。")
+    (dict "name" "多设备兼容与客户端导入" "displayName" "📱 多设备兼容与客户端导入" "slug" "cluster-multi-devices" "desc" "iOS小火箭获取、安卓客户端对比、Mac M芯片优化、WSL2/Apple TV/软路由全屋加速指南。")
+    (dict "name" "排错运维与退款隐私须知" "displayName" "🔧 排错运维与退款隐私须知" "slug" "cluster-troubleshoot-privacy" "desc" "退款政策剖析、零日志隐私辨析、SwitchyOmega插件、Google人机验证与账户2FA安全防护。")
+  }}
+
+  <!-- FAQ Clusters Navigation Bar -->
+  <section class="faq-clusters-nav-box">
+    <h2 class="sub-section-title">9 大专题快速直达（点击跳转到对应板块）</h2>
+    <div class="clusters-tag-group">
+      {{ range $clusters }}
+        {{ $cName := .name }}
+        {{ $cPages := where $.Pages ".Params.cluster" $cName }}
+        <a href="#{{ .slug }}" class="cluster-chip">
+          <span class="chip-label">{{ .displayName }} ({{ len $cPages }}题)</span>
+        </a>
+      {{ end }}
+    </div>
+  </section>
+
+  <!-- FAQ Items Stream (All Expanded by Default - Congo Card Style) -->
+  <div class="faq-clusters-stream">
+    {{ range $clusters }}
+      {{ $cName := .name }}
+      {{ $cPages := where $.Pages ".Params.cluster" $cName }}
+      <section class="faq-cluster-block" id="{{ .slug }}">
+        <div class="faq-cluster-header">
+          <div class="cluster-title-wrap">
+            <h2 class="faq-cluster-title">{{ .displayName }}</h2>
+            <span class="faq-cluster-badge">共 {{ len $cPages }} 题完整解答 · 默认全部展开</span>
+          </div>
+          <p class="faq-cluster-desc">{{ .desc }}</p>
+        </div>
+
+        <div class="faq-expanded-list">
+          {{ range $cPages }}
+            <article class="faq-qa-card congo-card" id="faq-{{ .File.TranslationBaseName }}">
+              <div class="faq-qa-header">
+                <span class="faq-cluster-tag">{{ with .Params.cluster }}{{ . }}{{ else }}常见疑问{{ end }}</span>
+                <span class="faq-keyword-tag">关键词：{{ with .Params.primaryKeyword }}{{ . }}{{ else }}机场指南{{ end }}</span>
+                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+              </div>
+              <h3 class="faq-qa-question">
+                <a href="{{ .RelPermalink }}" title="查看独立单页版本">{{ .Title }}</a>
+              </h3>
+              <div class="faq-qa-answer congo-prose">
+                <p class="faq-direct-answer-text">{{ with .Params.directAnswer }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 165 }}{{ end }}</p>
+              </div>
+              <div class="faq-qa-footer">
+                <a href="{{ .RelPermalink }}" class="faq-permalink-btn">查看详细说明与完整实战指导 &rarr;</a>
+              </div>
+            </article>
+          {{ end }}
+        </div>
+
+        <div class="faq-cluster-footer">
+          <a href="#faq-top" class="back-to-clusters-btn">&uarr; 返回顶部专题导航</a>
+        </div>
+      </section>
+    {{ end }}
+  </div>
+</div>
+
+<!-- FAQPage Schema JSON-LD matching visible concise answers -->
+{{- $questions := slice -}}
+{{- range .Pages -}}
+  {{- $ans := .Params.directAnswer | default (.Summary | plainify | truncate 165) -}}
+  {{- $q := dict "@type" "Question" "name" .Title "acceptedAnswer" (dict "@type" "Answer" "text" $ans) -}}
+  {{- $questions = $questions | append $q -}}
+{{- end -}}
+{{- $schema := dict "@context" "https://schema.org" "@type" "FAQPage" "mainEntity" $questions -}}
+<script type="application/ld+json">
+{{ $schema | jsonify (dict "indent" "  ") | safeJS }}
+</script>
+{{ end }}

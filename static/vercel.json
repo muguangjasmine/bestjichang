@@ -1,0 +1,24 @@
+{
+  "redirects": [
+    {
+      "source": "/providers/:slug",
+      "destination": "/airports/:slug/",
+      "permanent": true
+    },
+    {
+      "source": "/providers/:slug/",
+      "destination": "/airports/:slug/",
+      "permanent": true
+    },
+    {
+      "source": "/:section/page/1",
+      "destination": "/:section/",
+      "permanent": true
+    },
+    {
+      "source": "/:section/page/1/",
+      "destination": "/:section/",
+      "permanent": true
+    }
+  ]
+}

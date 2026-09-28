@@ -1,0 +1,129 @@
+{{ define "main" }}
+{{ $p := index (where .Site.Data.providers "slug" .File.TranslationBaseName) 0 }}
+<article class="single-article airport-profile-article docsy-article" itemscope itemtype="https://schema.org/Review">
+  <header class="article-header">
+    <div class="article-meta-top">
+      <span class="article-category-badge">机场独立档案与实测</span>
+      <time datetime="{{ .Date.Format "2006-01-02" }}" class="meta-date">核验于 {{ .Date.Format "2006-01-02" }}</time>
+      <span class="meta-reading-time">⏱️ {{ .ReadingTime }} 分钟阅读</span>
+      <span class="meta-author">✍️ {{ .Site.Params.brandName }}特约评测组</span>
+    </div>
+
+    <h1 class="article-title" itemprop="headline">{{ .Title }}</h1>
+
+    {{ with .Params.description }}
+      <div class="article-summary-lead" itemprop="description">
+        <span class="lead-icon">💡</span>
+        <div class="lead-text"><strong>核心导读：</strong>{{ . }}</div>
+      </div>
+    {{ end }}
+  </header>
+
+  {{ if $p }}
+  <!-- Provider Showcase Box -->
+  <section class="airport-hero-profile-card">
+    <div class="profile-card-top">
+      <div class="brand-rank-wrap">
+        <span class="rank-badge-lg">NO.{{ $p.rank }}</span>
+        <div class="brand-name-group">
+          <h2 class="profile-brand-name">{{ $p.name }}</h2>
+          <span class="profile-line-type">{{ $p.lineType }}</span>
+        </div>
+      </div>
+      <div class="profile-price-wrap">
+        <span class="price-from-label">参考起步资费</span>
+        <span class="price-from-value">{{ $p.priceFrom }}</span>
+      </div>
+    </div>
+
+    <div class="profile-specs-grid">
+      <div class="spec-item">
+        <span class="spec-k">月基础流量:</span>
+        <span class="spec-v">{{ $p.trafficFrom }}</span>
+      </div>
+      <div class="spec-item">
+        <span class="spec-k">适用场景:</span>
+        <span class="spec-v">{{ $p.suitableFor }}</span>
+      </div>
+      <div class="spec-item">
+        <span class="spec-k">支持协议:</span>
+        <span class="spec-v">{{ delimit $p.protocols " / " }}</span>
+      </div>
+      <div class="spec-item">
+        <span class="spec-k">节点地区:</span>
+        <span class="spec-v">{{ delimit $p.regions "、" }}</span>
+      </div>
+    </div>
+
+    <div class="profile-coupon-cta-bar">
+      <div class="coupon-box-inner">
+        <span class="coupon-title">专属优惠码:</span>
+        {{ if and $p.coupon (ne $p.coupon "暂无优惠码") (ne $p.coupon "优惠码待核实") }}
+          <code class="coupon-code-txt coupon-red">{{ $p.coupon }}</code>
+          <button type="button" class="copy-coupon-btn" onclick="copyCoupon('{{ $p.coupon }}', this)">复制折扣码</button>
+        {{ else }}
+          <span class="table-no-coupon">{{ $p.coupon }}</span>
+        {{ end }}
+        <span class="coupon-tip-note">{{ $p.couponNote }}</span>
+      </div>
+      <div class="cta-btn-wrap">
+        <a href="{{ $p.inviteURL }}" target="_blank" rel="sponsored nofollow noopener" class="btn btn-primary btn-pill btn-aff-hero">
+          {{ with $p.ctaText }}{{ . }}{{ else }}前往官网注册选购 ↗{{ end }}
+        </a>
+      </div>
+    </div>
+
+    <div class="profile-disclosure-notice">
+      <span>⚠️ 风险提示与数据说明：节点地区、实时价格、解锁支持及优惠幅度以该服务商官网结算页实时公布为准。本站为独立技术评测，可能包含合作推广佣金，不影响您的支付价格。</span>
+    </div>
+  </section>
+  {{ end }}
+
+  <!-- Table of Contents -->
+  {{ partial "toc.html" . }}
+
+  <!-- Article Markdown Content -->
+  <div class="article-body-content docsy-prose" itemprop="articleBody">
+    {{ .Content }}
+  </div>
+
+  {{ if $p }}
+  <!-- In-article Secondary CTA -->
+  <section class="in-article-cta-box" style="margin: 3rem 0; padding: 2rem; background: var(--card-bg, #f8fafc); border: 1px solid var(--border-color, #e2e8f0); border-radius: 12px; text-align: center;">
+    <h3 style="margin-top: 0; font-size: 1.35rem;">准备好体验 {{ $p.name }} 了吗？</h3>
+    <p style="color: var(--text-muted, #64748b); max-width: 600px; margin: 0.5rem auto 1.5rem auto;">
+      新用户注册建议优先选用短期月付或按量计费套餐验证晚高峰稳定性。{{ if and $p.coupon (ne $p.coupon "暂无优惠码") (ne $p.coupon "优惠码待核实") }}使用优惠码 <code class="coupon-red">{{ $p.coupon }}</code> 享受最新专属折扣。{{ end }}
+    </p>
+    <a href="{{ $p.inviteURL }}" target="_blank" rel="sponsored nofollow noopener" class="btn btn-primary btn-pill" style="padding: 0.75rem 2rem; font-size: 1.05rem;">
+      {{ with $p.ctaText }}{{ . }}{{ else }}直达官网注册选购 ↗{{ end }}
+    </a>
+  </section>
+  {{ end }}
+
+  <!-- Pagination -->
+  <nav class="docs-pagination-nav" aria-label="上下篇导航">
+    <div class="pagination-prev">
+      {{ with .PrevInSection }}
+        <a href="{{ .RelPermalink }}" class="pagination-link prev" rel="prev">
+          <span class="pagination-arrow">&larr; 上一家机场</span>
+          <span class="pagination-title">{{ .Title }}</span>
+        </a>
+      {{ end }}
+    </div>
+    <div class="pagination-next">
+      {{ with .NextInSection }}
+        <a href="{{ .RelPermalink }}" class="pagination-link next" rel="next">
+          <span class="pagination-arrow">下一家机场 &rarr;</span>
+          <span class="pagination-title">{{ .Title }}</span>
+        </a>
+      {{ end }}
+    </div>
+  </nav>
+
+  <div class="article-footer-back">
+    <a href="/airports/" class="btn btn-primary btn-pill">&larr; 返回全部 28 家机场大全</a>
+    <a href="/recommendations/" class="btn btn-outline btn-pill">查看 2026 核心机场推荐</a>
+    <a href="/" class="btn btn-secondary btn-pill">回到网站首页</a>
+  </div>
+</article>
+{{ end }}

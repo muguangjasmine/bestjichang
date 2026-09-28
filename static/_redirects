@@ -1,0 +1,23 @@
+# ========================================================
+# Best机场指南 (bestjichang.sbs) Cloudflare Pages & Netlify Redirect Rules
+# ========================================================
+
+# 301 Permanent Redirects from legacy /providers/ to canonical /airports/
+/providers/:slug/        /airports/:slug/        301!
+/providers/:slug         /airports/:slug/        301!
+/providers/              /airports/              301!
+/providers               /airports/              301!
+
+# 301 Permanent Redirects for Pagination Page 1 to Section Root
+/recommendations/page/1/  /recommendations/       301!
+/recommendations/page/1   /recommendations/       301!
+/clients/page/1/          /clients/               301!
+/clients/page/1           /clients/               301!
+/guides/page/1/           /guides/                301!
+/guides/page/1            /guides/                301!
+/airports/page/1/         /airports/              301!
+/airports/page/1          /airports/              301!
+/faq/page/1/              /faq/                   301!
+/faq/page/1               /faq/                   301!
+/:section/page/1/         /:section/              301!
+/:section/page/1          /:section/              301!

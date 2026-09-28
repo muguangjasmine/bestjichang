@@ -1,0 +1,20 @@
+<nav class="breadcrumbs-nav" aria-label="面包屑路径">
+  <ol class="breadcrumbs-list" itemscope itemtype="https://schema.org/BreadcrumbList">
+    <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a href="/" itemprop="item"><span itemprop="name">首页</span></a>
+      <meta itemprop="position" content="1" />
+    </li>
+    {{ if .Parent }}
+      {{ if not .Parent.IsHome }}
+      <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="{{ .Parent.RelPermalink }}" itemprop="item"><span itemprop="name">{{ .Parent.Title }}</span></a>
+        <meta itemprop="position" content="2" />
+      </li>
+      {{ end }}
+    {{ end }}
+    <li class="breadcrumb-item current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <span itemprop="name" aria-current="page">{{ .Title }}</span>
+      <meta itemprop="position" content="{{ if and .Parent (not .Parent.IsHome) }}3{{ else }}2{{ end }}" />
+    </li>
+  </ol>
+</nav>

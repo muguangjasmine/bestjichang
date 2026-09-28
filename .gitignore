@@ -1,0 +1,14 @@
+# Node modules
+node_modules/
+
+# Hugo build directories
+public/
+resources/
+.hugo_build.lock
+
+# Archives
+*.zip
+
+# OS Files
+.DS_Store
+Thumbs.db

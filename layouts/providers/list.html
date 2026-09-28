@@ -1,0 +1,16 @@
+{{ define "main" }}
+<div class="providers-archive-page">
+  <header class="section-page-header">
+    <h1 class="section-main-title">全网主流机场深度评测与档案库</h1>
+    <div class="section-intro-text">
+      <p>本专栏基于Best机场指南持续的实测跟踪与公开资料核验，全量收录涵盖 IEPL 内网专线、BGP中转优化及平价性价比轻量套餐的网络加速服务商。每家服务商均包含本站独立规范测评入口与官网注册通道，助您选到适合自己的稳定节点。</p>
+    </div>
+  </header>
+
+  <!-- Providers Comparison Table -->
+  <section class="all-providers-cards-block">
+    <h2 class="sub-section-title">全量机场详细测评与起步资费清单</h2>
+    {{ partial "ranking-table.html" (dict "Site" .Site) }}
+  </section>
+</div>
+{{ end }}

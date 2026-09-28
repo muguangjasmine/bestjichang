@@ -1,0 +1,563 @@
+- rank: 1
+  isPrimary: true
+  name: "梯子云 LadderCloud"
+  alternateName: "LadderCloud"
+  slug: "laddercloud"
+  inviteURL: "https://tiziyun3.ladderaff.com/#/?code=hQbiinRv"
+  ctaText: "查看梯子云套餐 ↗"
+  featuredPlacements: ["home", "recommendations", "airports"]
+  trackingLabel: "laddercloud"
+  coupon: "tiziyun"
+  couponNote: "专属优惠码，适用套餐及折扣以结算页实时显示为准"
+  lineType: "企业级 IEPL 纯专线"
+  priceFrom: "25 元/月"
+  trafficFrom: "125GB/月"
+  suitableFor: "轻中度日常使用、多设备日常使用与重度视频办公"
+  summary: "资料记录为企业级IEPL纯专线与VLESS协议，节点覆盖港台新日美，提供月付125GB起及年付89元方案。"
+  packages:
+    - name: "初阶网络·基础视界"
+      price: "25 元/月"
+      traffic: "125GB/月"
+    - name: "中阶加速·极清多线"
+      price: "60 元/月"
+      traffic: "350GB/月"
+    - name: "高阶专线·全球智联"
+      price: "110 元/月"
+      traffic: "750GB/月"
+    - name: "顶阶商业·全球骨干"
+      price: "190 元/月"
+      traffic: "1.6TB/月"
+    - name: "天梯随行·年度保活方案"
+      price: "89 元/年"
+      traffic: "60GB/年"
+  regions: ["香港", "台湾", "新加坡", "日本", "美国"]
+  protocols: ["VLESS"]
+  lastChecked: "2026-09-26"
+
+- rank: 2
+  isPrimary: true
+  name: "暮光加速"
+  alternateName: "暮光加速"
+  slug: "twilight"
+  inviteURL: "https://varnexa.twilightaff.com/#/?code=9wp1Pt82"
+  ctaText: "查看暮光加速套餐 ↗"
+  featuredPlacements: ["home", "recommendations", "airports"]
+  trackingLabel: "twilight"
+  coupon: "mm88"
+  couponNote: "截图记录优惠码为 mm88，8 折后约 ¥16/月，以结算页为准"
+  lineType: "VLESS专线"
+  priceFrom: "20 元/月"
+  trafficFrom: "120GB/月"
+  suitableFor: "日常浏览视频、流媒体、AI与跨境办公多设备"
+  summary: "资料记录为VLESS专线传输（有资料提及Trojan），节点覆盖港台日新美，提供月付120GB起及年付轻量版。"
+  packages:
+    - name: "暮光·基础版"
+      price: "20 元/月"
+      traffic: "120GB/月"
+    - name: "暮光·标准版"
+      price: "40 元/月"
+      traffic: "300GB/月"
+    - name: "暮光·旗舰版"
+      price: "100 元/月"
+      traffic: "700GB/月"
+    - name: "暮光·至尊版"
+      price: "180 元/月"
+      traffic: "1.5TB/月"
+    - name: "暮光·年付轻量版"
+      price: "109 元/年"
+      traffic: "70GB/年"
+  regions: ["香港", "台湾", "日本", "新加坡", "美国"]
+  protocols: ["VLESS", "Trojan"]
+  lastChecked: "2026-09-26"
+
+- rank: 3
+  isPrimary: true
+  name: "飞猫云"
+  alternateName: "FlyCat"
+  slug: "flycat-cloud"
+  inviteURL: "https://flycat1.flycatvipaff.cc/#/?code=TgFJ4DF5"
+  ctaText: "查看飞猫云年付 ↗"
+  featuredPlacements: ["home", "recommendations", "airports"]
+  trackingLabel: "flycat-cloud"
+  coupon: "flycat888"
+  couponNote: "新用户专属优惠码，有效性以结算页为准"
+  lineType: "IPLC专线（资料称）"
+  priceFrom: "84 元/年"
+  displayEquivalent: "折合 7 元/月"
+  trafficFrom: "50GB/月"
+  suitableFor: "轻度用户日常、重度使用与高用量电商直播"
+  summary: "资料称采用IPLC专线，提供学生版年付84元（50GB/月）与星耀版25元/月（150GB/月）。"
+  packages:
+    - name: "飞猫·学生版"
+      price: "84 元/年"
+      traffic: "50GB/月"
+    - name: "飞猫·星耀版"
+      price: "25 元/月"
+      traffic: "150GB/月"
+    - name: "飞猫·星环版"
+      price: "45 元/月"
+      traffic: "300GB/月"
+    - name: "飞猫·银河版"
+      price: "85 元/月"
+      traffic: "600GB/月"
+    - name: "飞猫·宇宙版"
+      price: "150 元/月"
+      traffic: "1000GB/月"
+  regions: ["香港", "日本", "美国", "新加坡"]
+  protocols: ["Shadowsocks", "Trojan"]
+  lastChecked: "2026-09-26"
+
+- rank: 4
+  isPrimary: true
+  name: "微风网络 Breezenet"
+  alternateName: "Breezenet"
+  slug: "breezenet"
+  inviteURL: "https://edp01.breezenetaff.com/#/?code=3PgTsmnp"
+  ctaText: "查看微风网络 ↗"
+  featuredPlacements: ["home", "recommendations", "airports"]
+  trackingLabel: "breezenet"
+  coupon: "暂无优惠码"
+  couponNote: "截图记录为注册即享原价，未提供独立优惠码，以结算页为准"
+  lineType: "VLESS中转专线"
+  priceFrom: "27 元/月"
+  trafficFrom: "200GB/月"
+  suitableFor: "日常使用、中高流量与重度用网需求"
+  summary: "资料记录为VLESS／中转专线，节点覆盖港台新日美，提供月付200GB起及两档不限时包。"
+  packages:
+    - name: "清风 Breeze"
+      price: "137 元/年"
+      traffic: "100GB"
+    - name: "乘风 Riding"
+      price: "27 元/月"
+      traffic: "200GB/月"
+    - name: "破风 Breaking"
+      price: "57 元/月"
+      traffic: "500GB/月"
+    - name: "御风 Mastery"
+      price: "127 元/月"
+      traffic: "1200GB/月"
+  regions: ["香港", "台湾", "新加坡", "日本", "美国"]
+  protocols: ["VLESS"]
+  lastChecked: "2026-09-26"
+
+- rank: 5
+  isPrimary: false
+  name: "隐形人"
+  slug: "yinxingren"
+  inviteURL: "https://varnexa.invisibleaff.com/#/?code=D5gVzA2Y"
+  ctaText: "查看隐形人套餐 ↗"
+  coupon: "yxr888"
+  couponNote: "专属优惠码，以结算页实时折扣为准"
+  lineType: "VLESS Reality"
+  priceFrom: "24 元/月"
+  trafficFrom: "144GB/月"
+  suitableFor: "强抗封锁、新协议极速体验与大流量多终端使用"
+  summary: "采用先进 VLESS Reality 协议，高度伪装免证书，白银纪元套餐24元/月含144GB流量，不限速不限设备。"
+  speed: "不限速"
+  deviceLimit: "不限"
+  billingCycles:
+    - "月付"
+    - "季付"
+    - "半年付"
+    - "年付"
+  packages:
+    - name: "白银纪元"
+      price: "24 元/月"
+      traffic: "144GB/月"
+      speed: "不限速"
+      deviceLimit: "不限"
+      billingCycles: "月付 / 季付 / 半年付 / 年付"
+  regions: ["香港", "日本", "美国"]
+  protocols: ["VLESS"]
+  lastChecked: "2026-09-28"
+
+- rank: 6
+  isPrimary: false
+  name: "浪网 WaveNet"
+  slug: "wavenet"
+  inviteURL: "https://varnexa.wavenetaff.com/#/?code=FKzHpUPS"
+  ctaText: "查看浪网套餐 ↗"
+  coupon: "wave888"
+  couponNote: "专属优惠码，以结算页实时折扣为准"
+  lineType: "AI特化"
+  priceFrom: "24 元/月"
+  trafficFrom: "200GB/月"
+  suitableFor: "ChatGPT/Claude/Gemini 等 AI 工具稳定调用与代码开发"
+  summary: "针对生成式 AI 工具进行专属原生 IP 路由优化，防风控与验证码。"
+  regions: ["香港", "美国", "新加坡", "日本"]
+  protocols: ["Trojan", "VLESS"]
+  lastChecked: "2026-09-25"
+
+- rank: 7
+  isPrimary: false
+  name: "灵动云"
+  slug: "lingdongyun"
+  inviteURL: "https://varnexa.lingdongaff.com/#/?code=PyKIF6nz"
+  ctaText: "查看灵动云套餐 ↗"
+  coupon: "ld88"
+  couponNote: "专属优惠码，以结算页实时折扣为准"
+  lineType: "VLESS"
+  priceFrom: "20 元/月"
+  trafficFrom: "150GB/月"
+  suitableFor: "轻量多协议、平价月付与稳定网页冲浪"
+  summary: "主打 VLESS 灵活接入与平价资费，适合预算有限的日常加速用户。"
+  regions: ["香港", "日本", "美国"]
+  protocols: ["VLESS", "Trojan"]
+  lastChecked: "2026-09-25"
+
+- rank: 8
+  isPrimary: false
+  name: "飞V"
+  slug: "flyv"
+  inviteURL: "https://varnexa.flyvaff.com/#/?code=qdEX3VKC"
+  ctaText: "查看飞V套餐 ↗"
+  coupon: "flyv99"
+  couponNote: "专属优惠码，以结算页实时折扣为准"
+  lineType: "1.0x计费"
+  priceFrom: "18 元/月"
+  trafficFrom: "120GB/月"
+  suitableFor: "全节点1.0x真实倍率、透明计费与省心备用"
+  summary: "全节点 1.0x 真实计费不虚标，计费透明，性价比出色。"
+  regions: ["香港", "日本", "新加坡", "美国"]
+  protocols: ["Shadowsocks", "Trojan"]
+  lastChecked: "2026-09-25"
+
+- rank: 9
+  isPrimary: false
+  name: "全球云"
+  slug: "quanqiu-cloud"
+  inviteURL: "https://sswdh.gcvipaff.com/#/?code=mJ7fJ5dI"
+  ctaText: "查看全球云套餐 ↗"
+  coupon: "qq88"
+  couponNote: "专属优惠码，以结算页实时折扣为准"
+  lineType: "BGP跨境"
+  priceFrom: "20 元/月"
+  trafficFrom: "120GB/月"
+  suitableFor: "多国家与地区节点、跨境办公协作与多出口 IP"
+  summary: "提供多国家丰富冷门节点与智能跨境路由，适合多地区出海业务。"
+  regions: ["香港", "日本", "新加坡", "美国", "英国", "德国"]
+  protocols: ["Trojan", "Shadowsocks"]
+  lastChecked: "2026-09-25"
+
+- rank: 10
+  isPrimary: false
+  name: "星岛梦"
+  slug: "xingdaomeng"
+  inviteURL: "https://kfccbb.xingdaomeng.com/#/?code=BRVfHo5z"
+  ctaText: "查看星岛梦套餐 ↗"
+  coupon: "nmw888"
+  couponNote: "专属优惠码，以结算页实时折扣为准"
+  lineType: "大带宽专线"
+  priceFrom: "8 元/月（年付折算）"
+  trafficFrom: "60GB/月"
+  suitableFor: "平价年付大带宽、流媒体轻量观看与备选专线"
+  summary: "主打年付低折算单价与专线大带宽，适合长期轻量备用。"
+  regions: ["香港", "日本", "美国"]
+  protocols: ["Shadowsocks", "Trojan"]
+  lastChecked: "2026-09-25"
+
+- rank: 11
+  isPrimary: false
+  name: "光速云 LightSpeed"
+  slug: "guangsuyun"
+  inviteURL: "https://mdlky.gsyaff.com/#/?code=WDY5zUti"
+  ctaText: "查看光速云套餐 ↗"
+  coupon: "AMM"
+  couponNote: "专属优惠码，以结算页实时折扣为准"
+  lineType: "IPLC专线（资料称）"
+  priceFrom: "8 元/月起（年付折算）"
+  trafficFrom: "60GB/月"
+  suitableFor: "低成本专线尝鲜、轻度网页加速与应急备用"
+  summary: "资料记录为低门槛 IPLC 方案，实际套餐与计费以结算页为准。"
+  regions: ["香港", "日本", "新加坡"]
+  protocols: ["Shadowsocks"]
+  lastChecked: "2026-09-25"
+
+- rank: 12
+  isPrimary: false
+  name: "唯兔云（V2云）"
+  slug: "v2yun"
+  inviteURL: "https://fast.v2yunvipaff.com/#/?code=2UBN88q4"
+  ctaText: "查看唯兔云套餐 ↗"
+  coupon: "rabbit"
+  couponNote: "专属优惠码，以结算页实时折扣为准"
+  lineType: "IPLC专线（资料称）"
+  priceFrom: "79.9 元/年"
+  trafficFrom: "45GB/月"
+  suitableFor: "百元内年付轻量备用、学生党日常科研查资料"
+  summary: "年付平价小流量套餐，适合不需要大量下载的轻量用户。"
+  regions: ["香港", "日本", "美国"]
+  protocols: ["Shadowsocks", "Trojan"]
+  lastChecked: "2026-09-25"
+
+- rank: 13
+  isPrimary: false
+  name: "U1S1（有一说一）"
+  slug: "u1s1"
+  inviteURL: "https://pkdj7.vipaff.cc/#/?code=1DVSrFAo"
+  ctaText: "查看U1S1套餐 ↗"
+  coupon: "akaka"
+  couponNote: "专属优惠码，以结算页实时折扣为准"
+  lineType: "IEPL专线（资料称）"
+  priceFrom: "20 元/月"
+  trafficFrom: "120GB/月"
+  suitableFor: "实用主义月付、日常音视频与主流网页加速"
+  summary: "资料标榜 IEPL 专线传输，定价亲民，月付体验友好。"
+  regions: ["香港", "日本", "新加坡", "美国"]
+  protocols: ["Trojan", "Shadowsocks"]
+  lastChecked: "2026-09-25"
+
+- rank: 14
+  isPrimary: false
+  name: "极连云"
+  slug: "jilianyun"
+  inviteURL: "https://kdjhao.jlyvipaff.com/#/?code=kcMcl5sB"
+  ctaText: "查看极连云套餐 ↗"
+  coupon: "JLY888"
+  couponNote: "专属优惠码，以结算页实时折扣为准"
+  lineType: "IPLC专线（资料称）"
+  priceFrom: "96 元/年"
+  trafficFrom: "60GB/月"
+  suitableFor: "平价年付专线、多设备轻量连接与备用通道"
+  summary: "年付未满百元的高性价比专线，适合作为常备副节点。"
+  regions: ["香港", "日本", "美国"]
+  protocols: ["Shadowsocks"]
+  lastChecked: "2026-09-25"
+
+- rank: 15
+  isPrimary: false
+  name: "光年梯"
+  slug: "guangnianti"
+  inviteURL: "https://ggmq.gntaff.com/#/?code=4UZhabi9"
+  ctaText: "查看光年梯套餐 ↗"
+  coupon: "gnt6666"
+  couponNote: "专属优惠码，以结算页实时折扣为准"
+  lineType: "IPLC专线（资料称）"
+  priceFrom: "18 元/月"
+  trafficFrom: "110GB/月"
+  suitableFor: "二十元内月付专线体验、多客户端灵活分流"
+  summary: "月付定价适中，资料标注具备 IPLC 线路，适合试用体验。"
+  regions: ["香港", "日本", "新加坡"]
+  protocols: ["Shadowsocks", "Trojan"]
+  lastChecked: "2026-09-25"
+
+- rank: 16
+  isPrimary: false
+  name: "Sogo云"
+  slug: "sogocloud"
+  inviteURL: "https://wzjc.sogoyunaff.cc/#/?code=TPFG3ehy"
+  ctaText: "查看Sogo云套餐 ↗"
+  coupon: "sss777"
+  couponNote: "专属优惠码，以结算页实时折扣为准"
+  lineType: "专线＋中转（资料称）"
+  priceFrom: "25 元/月"
+  trafficFrom: "150GB/月"
+  suitableFor: "中等流量月付、常规流媒体与日常办公"
+  summary: "混合线路调度，提供稳定常规节点，套餐流量相对充裕。"
+  regions: ["香港", "日本", "美国", "新加坡"]
+  protocols: ["Shadowsocks", "VLESS"]
+  lastChecked: "2026-09-25"
+
+- rank: 17
+  isPrimary: false
+  name: "宇宙云 YuZhou"
+  slug: "yuzhoucloud"
+  inviteURL: "https://wzjc.yuzoucloud.cc/#/?code=vqR6JUIy"
+  ctaText: "查看宇宙云套餐 ↗"
+  coupon: "YUZHOU553"
+  couponNote: "专属优惠码，以结算页实时折扣为准"
+  lineType: "IEPL＋BGP（资料称）"
+  priceFrom: "96 元/年"
+  trafficFrom: "60GB/月"
+  suitableFor: "年付平价混合线路、轻度出海与备用节点"
+  summary: "结合 IEPL 与 BGP 双架构，年付方案门槛较低。"
+  regions: ["香港", "日本", "美国"]
+  protocols: ["Trojan", "Shadowsocks"]
+  lastChecked: "2026-09-25"
+
+- rank: 18
+  isPrimary: false
+  name: "二猫云 2mao"
+  slug: "ermaocloud"
+  inviteURL: "https://waaa.2maoyunaff.cc/#/?code=cll4KyKu"
+  ctaText: "查看二猫云套餐 ↗"
+  coupon: "ermao5555"
+  couponNote: "专属优惠码，以结算页实时折扣为准"
+  lineType: "IPLC专线（资料称）"
+  priceFrom: "20 元/月"
+  trafficFrom: "130GB/月"
+  suitableFor: "二十元档月付专线、主流流媒体观看与游戏加速"
+  summary: "资料标称纯 IPLC 线路，主打月付低价与常用客户端支持。"
+  regions: ["香港", "日本", "新加坡", "美国"]
+  protocols: ["Shadowsocks", "Trojan"]
+  lastChecked: "2026-09-25"
+
+- rank: 19
+  isPrimary: false
+  name: "一翻云 1fly"
+  slug: "yifanyun"
+  inviteURL: "https://wzjc.1flyunaff.cc/#/?code=kgIiE4cf"
+  ctaText: "查看一翻云套餐 ↗"
+  coupon: "yfy6666"
+  couponNote: "专属优惠码，以结算页实时折扣为准"
+  lineType: "IEPL专线（资料称）"
+  priceFrom: "20 元/月"
+  trafficFrom: "150GB/月"
+  suitableFor: "高流量月付、IEPL大带宽下载与多端同步"
+  summary: "20元月付档位提供150GB流量，适合有一定用量需求的用户。"
+  regions: ["香港", "日本", "美国"]
+  protocols: ["Shadowsocks", "VLESS"]
+  lastChecked: "2026-09-25"
+
+- rank: 20
+  isPrimary: false
+  name: "边缘节点 EdgeNova"
+  slug: "edgenova"
+  inviteURL: "https://work.edgenovaaff.cc/#/?code=Vq9xyKYy"
+  ctaText: "查看边缘节点套餐 ↗"
+  coupon: "优惠码待核实"
+  couponNote: "暂未检索到公开优惠码，以结算页实时显示为准"
+  lineType: "中转/BGP（资料称）"
+  priceFrom: "15 元/月"
+  trafficFrom: "72GB/月"
+  suitableFor: "超低预算月付、边缘机房快速接入与日常备用"
+  summary: "主打低单价月付入门，线路与优惠细节以结算页为准。"
+  regions: ["香港", "日本", "新加坡"]
+  protocols: ["Shadowsocks"]
+  lastChecked: "2026-09-25"
+
+- rank: 21
+  isPrimary: false
+  name: "可信云"
+  slug: "kexinyun"
+  inviteURL: "https://work.kosingaff/#/?code=pax3nIrw"
+  ctaText: "查看可信云套餐 ↗"
+  coupon: "kkk333"
+  couponNote: "专属优惠码，以结算页实时折扣为准"
+  lineType: "IEPL专线（资料称）"
+  priceFrom: "25 元/月"
+  trafficFrom: "150GB/月"
+  suitableFor: "专线稳定连接、多平台订阅支持与日常出海"
+  summary: "主打 IEPL 专线与充足月流量，适合日常办公与影音体验。"
+  regions: ["香港", "日本", "美国"]
+  protocols: ["Trojan", "Shadowsocks"]
+  lastChecked: "2026-09-25"
+
+- rank: 22
+  isPrimary: false
+  name: "速界 SuJie"
+  slug: "sujie"
+  inviteURL: "https://work.speedworldaff.cc/#/?code=D06us7zH"
+  ctaText: "查看速界套餐 ↗"
+  coupon: "sss1111"
+  couponNote: "专属优惠码，以结算页实时折扣为准"
+  lineType: "线路待核实"
+  priceFrom: "25 元/月"
+  trafficFrom: "150GB/月"
+  suitableFor: "月付多流量、主流客户端快速订阅与备选方案"
+  summary: "线路类型与节点覆盖建议在购买前查看实时结算页确认。"
+  regions: ["香港", "日本", "新加坡", "美国"]
+  protocols: ["Shadowsocks"]
+  lastChecked: "2026-09-25"
+
+- rank: 23
+  isPrimary: false
+  name: "快狸 KuaiLi"
+  slug: "kuaili"
+  inviteURL: "https://work.kuailicloud.cc/#/?code=Mtr1ng9x"
+  ctaText: "查看快狸套餐 ↗"
+  coupon: "kkk2222"
+  couponNote: "专属优惠码，以结算页实时折扣为准"
+  lineType: "线路待核实"
+  priceFrom: "10 元/月"
+  trafficFrom: "30GB/月"
+  suitableFor: "十元极低月付、超轻度文字查阅与应急小流量"
+  summary: "低门槛十元起步，流量适合极轻度网页查阅与应急备份。"
+  regions: ["香港", "日本"]
+  protocols: ["Shadowsocks"]
+  lastChecked: "2026-09-25"
+
+- rank: 24
+  isPrimary: false
+  name: "无忧"
+  slug: "wuyou"
+  inviteURL: "https://wep01.worryfreeaff.com/#/?code=4rYu7UoX"
+  ctaText: "查看无忧套餐 ↗"
+  coupon: "wuyou666"
+  couponNote: "专属优惠码，以结算页实时折扣为准"
+  lineType: "线路待核实"
+  priceFrom: "79 元/年"
+  trafficFrom: "40GB/月"
+  suitableFor: "七十几元年付极低负担、轻度出海与备用节点"
+  summary: "年付平价方案，购买前请在结算页核对节点支持与客户端兼容。"
+  regions: ["香港", "日本", "美国"]
+  protocols: ["Shadowsocks"]
+  lastChecked: "2026-09-25"
+
+- rank: 25
+  isPrimary: false
+  name: "灵猫"
+  slug: "lingmao"
+  inviteURL: "https://vip02.civetaff.com/#/?code=UnREOwGs"
+  ctaText: "查看灵猫套餐 ↗"
+  coupon: "lingmao"
+  couponNote: "专属优惠码，以结算页实时折扣为准"
+  lineType: "企业级专线（资料称）"
+  priceFrom: "价格待核实（约150GB档）"
+  trafficFrom: "约150GB档"
+  suitableFor: "企业级专线诉求、高抗干扰多端接入"
+  summary: "资料标称企业专线，实际套餐价格与可用协议以下单页为准。"
+  regions: ["香港", "日本", "新加坡", "美国"]
+  protocols: ["Shadowsocks", "Trojan"]
+  lastChecked: "2026-09-25"
+
+- rank: 26
+  isPrimary: false
+  name: "闪跃 FlashLeap"
+  slug: "flashleap"
+  inviteURL: "https://vip02.flashleapaff.com/#/?code=cKqTa26W"
+  ctaText: "查看闪跃套餐 ↗"
+  coupon: "shanyue"
+  couponNote: "专属优惠码，以结算页实时折扣为准"
+  lineType: "IPLC专线（资料称）"
+  priceFrom: "8 元/月起（5GB/月）"
+  trafficFrom: "5GB/月起"
+  suitableFor: "微流量极低单价测试、单点故障紧急应急备用"
+  summary: "极小流量起步方案，适合用于紧急查看文字邮件或测速试用。"
+  regions: ["香港", "日本"]
+  protocols: ["Shadowsocks"]
+  lastChecked: "2026-09-25"
+
+- rank: 27
+  isPrimary: false
+  name: "飞为 Firefly"
+  slug: "firefly"
+  inviteURL: "https://vip02.fireflyaff.com/#/?code=OieI5abw"
+  ctaText: "查看飞为套餐 ↗"
+  coupon: "firefly"
+  couponNote: "专属优惠码，以结算页实时折扣为准"
+  lineType: "IPLC＋VLESS（资料称）"
+  priceFrom: "96 元/年"
+  trafficFrom: "60GB/月"
+  suitableFor: "平价年付专线、VLESS新协议体验与备选节点"
+  summary: "资料标注融合 IPLC 与 VLESS 协议，实际网络以结算页为准。"
+  regions: ["香港", "日本", "美国"]
+  protocols: ["Shadowsocks", "VLESS"]
+  lastChecked: "2026-09-25"
+
+- rank: 28
+  isPrimary: false
+  name: "跨界"
+  slug: "kuajie"
+  inviteURL: "https://vip02.kuajieaff.com/#/?code=J35Echs1"
+  ctaText: "查看跨界套餐 ↗"
+  coupon: "kuajie"
+  couponNote: "专属优惠码，以结算页实时折扣为准"
+  lineType: "线路待核实"
+  priceFrom: "96 元/年"
+  trafficFrom: "60GB/月"
+  suitableFor: "百元以内年付方案、轻度日常备用与多客户端导入"
+  summary: "平价年付选项，购买前请在商家注册页面核查线路与退款条款。"
+  regions: ["香港", "日本", "美国"]
+  protocols: ["Shadowsocks"]
+  lastChecked: "2026-09-25"

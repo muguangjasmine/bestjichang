@@ -1,0 +1,141 @@
+{{ define "main" }}
+<div class="home-page docsy-home">
+  <!-- 1. Docsy Style Hero Section -->
+  <section class="hero-section">
+    <div class="hero-status-pill">
+      <span class="status-pulse-dot"></span>
+      <span class="status-text">2026资料整理 · 套餐、线路与使用场景持续核验</span>
+    </div>
+
+    <h1 class="hero-title">{{ .Site.Params.heroTitle }}</h1>
+
+    <p class="hero-subtitle">
+      {{ .Site.Params.heroSubtitle }}
+    </p>
+
+    <!-- Requirement: 至少提供两个显眼 CTA：“查看2026机场推荐”“查看小白客户端教程” -->
+    <div class="hero-cta-group">
+      <a href="/recommendations/" class="btn btn-primary btn-pill">查看2026机场推荐 &rarr;</a>
+      <a href="/clients/" class="btn btn-outline btn-pill">查看小白客户端教程</a>
+      <a href="/airports/" class="btn btn-secondary btn-pill">查看全部28家机场</a>
+    </div>
+
+    <div class="hero-disclaimer-box">
+      <span class="disclaimer-icon">🛡️</span>
+      <p class="disclaimer-text"><strong>合规与披露：</strong>本站包含经技术核验的推广邀请链接，绝不影响您的购买价格。所有价格、节点状态、AI解锁与优惠以服务商结算页实时数据为准。严选低延迟IEPL/IPLC专线、避雷跑路小作坊。</p>
+    </div>
+  </section>
+
+  <!-- 2. Four Featured Providers Module (Restored Top 4) -->
+  {{ partial "top-providers-box.html" . }}
+
+
+  <!-- 3. Key Portal Navigation Grid (Docsy Portal Cards) -->
+  <section class="section-container portal-nav-section">
+    <div class="section-header">
+      <span class="section-eyebrow">PORTAL SECTIONS</span>
+      <h2 class="section-title">全站核心分类专题与选购指南</h2>
+      <p class="section-desc">从小白入门、客户端配置到专线技术解析与 AI/流媒体特化节点，按需选择：</p>
+    </div>
+
+    <div class="scenario-grid">
+      <a href="/recommendations/" class="scenario-card">
+        <span class="scenario-icon">🚀</span>
+        <h3 class="scenario-title">机场推荐 (24篇)</h3>
+        <p class="scenario-desc">稳定机场、高性价比月付/年付方案与避坑选型指南。</p>
+      </a>
+      <a href="/airports/" class="scenario-card">
+        <span class="scenario-icon">🌐</span>
+        <h3 class="scenario-title">全部机场 (28家)</h3>
+        <p class="scenario-desc">28家主流机场详细横向参数表、独立测评单页与注册直达。</p>
+      </a>
+      <a href="/ai/" class="scenario-card">
+        <span class="scenario-icon">🤖</span>
+        <h3 class="scenario-title">AI 机场 (12篇)</h3>
+        <p class="scenario-desc">ChatGPT、Claude、Gemini、Cursor专属原生住宅IP节点。</p>
+      </a>
+      <a href="/streaming/" class="scenario-card">
+        <span class="scenario-icon">🎬</span>
+        <h3 class="scenario-title">流媒体解锁 (10篇)</h3>
+        <p class="scenario-desc">Netflix 4K、YouTube秒开、Disney+与TikTok出海节点配置。</p>
+      </a>
+      <a href="/network/" class="scenario-card">
+        <span class="scenario-icon">⚡</span>
+        <h3 class="scenario-title">专线与节点 (12篇)</h3>
+        <p class="scenario-desc">IEPL/IPLC物理专线、BGP多线接入、VLESS协议与倍率计算。</p>
+      </a>
+      <a href="/clients/" class="scenario-card">
+        <span class="scenario-icon">💻</span>
+        <h3 class="scenario-title">客户端教程 (24篇)</h3>
+        <p class="scenario-desc">Clash Verge Rev、Shadowrocket、Stash、sing-box全平台教程。</p>
+      </a>
+      <a href="/guides/" class="scenario-card">
+        <span class="scenario-icon">📖</span>
+        <h3 class="scenario-title">小白教程 (24篇)</h3>
+        <p class="scenario-desc">零基础极速上手、订阅导入、分流模式、测速与故障排障。</p>
+      </a>
+      <a href="/coupons/" class="scenario-card">
+        <span class="scenario-icon">🏷️</span>
+        <h3 class="scenario-title">优惠码与折扣 (12篇)</h3>
+        <p class="scenario-desc">各大机场最新专属优惠码、折上折激活与省钱攻略汇总。</p>
+      </a>
+      <a href="/updates/" class="scenario-card">
+        <span class="scenario-icon">📋</span>
+        <h3 class="scenario-title">更新日志 (12篇)</h3>
+        <p class="scenario-desc">机场最新价格波动、线路维护、优惠调整与客户端版本动态。</p>
+      </a>
+      <a href="/faq/" class="scenario-card">
+        <span class="scenario-icon">❓</span>
+        <h3 class="scenario-title">常见问题 FAQ (100题)</h3>
+        <p class="scenario-desc">100题完整答疑，覆盖协议、客户端、退款、多设备与排障。</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- 4. FAQ Highlights (Expanded by Default) -->
+  <section class="section-container faq-preview-section">
+    <div class="section-header">
+      <span class="section-eyebrow">FAQ SPOTLIGHT</span>
+      <h2 class="section-title">新手最关心的 6 大高频疑问快速解答</h2>
+      <p class="section-desc">选购与配置中遇到的常见困惑，直接解答不绕弯路：</p>
+    </div>
+
+    <div class="faq-preview-grid">
+      <div class="faq-card congo-card">
+        <h4 class="faq-card-title">Q1: 为什么强烈建议新手第一次选机场必须坚持“月付”？</h4>
+        <p class="faq-card-desc">月付试错成本极低（通常十几元）。可以先验证本地宽带（电信/联通/移动）在晚高峰的真实延迟与稳定性，确认满意再长久续费，有效规避不良商家卷款跑路风险。</p>
+        <a href="/faq/monthly-vs-yearly-airport-plans/" class="faq-card-link">查看完整分析 &rarr;</a>
+      </div>
+      <div class="faq-card congo-card">
+        <h4 class="faq-card-title">Q2: IEPL、IPLC 专线与普通直连中转机场有什么本质差别？</h4>
+        <p class="faq-card-desc">专线在境内入口即通过内网物理专用光纤过境，完全不过公网国际出口防火墙，晚高峰丢包率趋近于零；而普通公网直连在晚高峰极易受骨干网潮汐拥塞导致降速断流。</p>
+        <a href="/faq/bgp-tunnel-vs-iepl-dedicated-line/" class="faq-card-link">查看完整分析 &rarr;</a>
+      </div>
+      <div class="faq-card congo-card">
+        <h4 class="faq-card-title">Q3: 为什么使用代理后 ChatGPT / Claude 提示 Access Denied？</h4>
+        <p class="faq-card-desc">AI 平台对机房数据中心 IP 风控极严。若多人共享相同 IP 或节点触发滥用，会被暂时封锁。解决办法是选用带有原生住宅 IP 或 AI 优化的专属节点。</p>
+        <a href="/faq/ai-tools-chatgpt-claude-airport/" class="faq-card-link">查看完整分析 &rarr;</a>
+      </div>
+      <div class="faq-card congo-card">
+        <h4 class="faq-card-title">Q4: Clash 客户端里 Rule（规则）、Global（全局）、Direct（直连）怎么选？</h4>
+        <p class="faq-card-desc">日常使用务必选择“Rule（规则模式）”！国内网站（百度、淘宝、微信）直连不走代理且定位准确，海外受阻网站自动分流走节点加速，既省流量又保证本地网络速度。</p>
+        <a href="/faq/clash-rule-mode-vs-global-mode/" class="faq-card-link">查看完整分析 &rarr;</a>
+      </div>
+      <div class="faq-card congo-card">
+        <h4 class="faq-card-title">Q5: 节点测速全部“Timeout / 全红”打不开网页是什么原因？</h4>
+        <p class="faq-card-desc">最常见原因是本地电脑系统时间不准（与网络标准时间偏差超过60秒导致TLS握手失败），或机场订阅链接过期未更新，只需同步系统时间或刷新订阅即可恢复。</p>
+        <a href="/faq/clash-node-timeout-all-red-fix/" class="faq-card-link">查看完整分析 &rarr;</a>
+      </div>
+      <div class="faq-card congo-card">
+        <h4 class="faq-card-title">Q6: 节点列表里的“1.0x / 2.0x / 0.5x”倍率是什么意思？</h4>
+        <p class="faq-card-desc">倍率是流量扣费系数：1.0x 节点用 1GB 扣 1GB；2.0x 节点用 1GB 扣 2GB；0.5x 节点用 1GB 仅扣 500MB。大流量下载或看4K视频时务必看清倍率避免流量暴扣。</p>
+        <a href="/faq/node-multiplier-billing-explained/" class="faq-card-link">查看完整分析 &rarr;</a>
+      </div>
+    </div>
+
+    <div class="section-footer-action" style="margin-top: 2rem;">
+      <a href="/faq/" class="btn btn-primary btn-pill">浏览全部 100 条完整展开的常见问题解答 &rarr;</a>
+    </div>
+  </section>
+</div>
+{{ end }}

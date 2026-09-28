@@ -1,0 +1,14 @@
+# ========================================================
+# Best机场指南 (bestjichang.sbs) Apache & LiteSpeed 301 Redirect Rules
+# ========================================================
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+
+# 301 Permanent Redirects from legacy /providers/ to /airports/
+RewriteRule ^providers/(.*)$ /airports/$1 [R=301,L]
+
+# 301 Permanent Redirect any /<section>/page/1/ or /<section>/page/1 to /<section>/
+RewriteRule ^(.+)/page/1/?$ /$1/ [R=301,L]
+</IfModule>
